@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100vw;
+  height: 150px;
+  background-color: #b4cff8;
+}
+
+.main-conts {
+  width: 100vw;
+  height: calc(100vh - 400px);
+  display: flex;
+  .left-conts {
+    background-color: #ccf4f7;
+    width: 50vw;
+  }
+  .right-conts {
+    background-color: #ccf7e7;
+    width: 50vw;
+
+  }
+}
+
+.sub-conts {
+  width: 100vw;
+  height: 250px;
+  background-color: #c7b0f0;
+}
