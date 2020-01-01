@@ -2,17 +2,31 @@
   .header-left
     .title
       .title__name
-        ポートフォリオ１
+        - if user_signed_in?
+          = current_user.name
+        - else
+          ログインしていません
       .title__set
         .title__set__icon
-          %i{class:"fas fa-cog fa-2x"}
+          - if user_signed_in?
+            = link_to edit_user_path(current_user) do
+              %i{class:"fas fa-cog fa-2x"}
+              -# = icon('fas', 'cog', class: 'icon')
   .right-menu
-    .right-menu__list
-      .right-menu__list__btn
-        <input type="button" class="btn1" value="新規登録">
-    .right-menu__list
-      .right-menu__list__btn
-        <input type="button" class="btn1" value="ログイン">
+    - if user_signed_in?
+      .right-menu__list-signed
+        .right-menu__list__btn
+          = link_to destroy_user_session_path, method: :delete do
+            <input type="button" class="btn1" value="ログアウト">
+    - else
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to new_user_registration_path do
+            <input type="button" class="btn1" value="新規登録">
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to new_user_session_path do
+            <input type="button" class="btn1" value="ログイン">
 
 .main-conts
   .left-conts
@@ -37,6 +51,9 @@
       .left-conts__list__r-side
         .when
           <input type="month"> 
+        .edit
+          <input type="button" value="新規">
+          <input type="button" value="更新">
         .total
           総収入: 58万円
     .left-conts__list
@@ -50,19 +67,19 @@
             %th キャッシュフロー
           %tr
             %td 税金
-            %td <input type="number"> 万円
+            %td <input type="number" class="form"> 万円
           %tr
             %td 住宅ローン
-            %td <input type="number"> 万円
+            %td <input type="number" class="form"> 万円
           %tr
             %td 自動車ローン
-            %td <input type="number"> 万円
+            %td <input type="number" class="form"> 万円
             
       .left-conts__list__r-side
         
         .total
           総収入: 43万円
-          <input type="button" value="更新">
+          
   
   .right-conts
     .right-conts__list

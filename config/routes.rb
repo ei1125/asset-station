@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'incomes/index'
+  devise_for :users
 
   root "incomes#index"
+  resources :users, only: [:edit, :update]
 end
