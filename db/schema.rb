@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200101015346) do
+ActiveRecord::Schema.define(version: 20200101070245) do
+
+  create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "item",       null: false
+    t.integer  "money",      null: false
+    t.integer  "deposit"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_assets_on_user_id", using: :btree
+  end
+
+  create_table "debts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "item",                  null: false
+    t.integer  "money",                 null: false
+    t.float    "rate",       limit: 24
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["user_id"], name: "index_debts_on_user_id", using: :btree
+  end
+
+  create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "item",       null: false
+    t.integer  "cf",         null: false
+    t.integer  "month_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["month_id"], name: "index_expenses_on_month_id", using: :btree
+  end
+
+  create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "item",       null: false
+    t.integer  "cf",         null: false
+    t.integer  "month_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["month_id"], name: "index_incomes_on_month_id", using: :btree
+  end
 
   create_table "months", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "month",      limit: 1, null: false
@@ -44,6 +82,10 @@ ActiveRecord::Schema.define(version: 20200101015346) do
     t.index ["year"], name: "index_years_on_year", using: :btree
   end
 
+  add_foreign_key "assets", "users"
+  add_foreign_key "debts", "users"
+  add_foreign_key "expenses", "months"
+  add_foreign_key "incomes", "months"
   add_foreign_key "months", "years"
   add_foreign_key "years", "users"
 end
