@@ -1,0 +1,48 @@
+.year-header
+  .year-header__input
+    <input type="number" class="y-num">
+    年
+    <input type="number" class="m-num">
+    月
+    <input type="button" value="表示する">
+  .year-header__back
+    = link_to years_path do
+      <input type="button" value="戻る">
+.year-main
+  .year-side-bar
+    %ul{class:"side_input"}
+      %li 収入: 行を選択 <input type="number" class="s_num"> <input type "text" placeholder="項目名を入力" class="s_name">
+      %li 支出: 行を選択 <input type="number" class="s_num"> <input type "text" placeholder="項目名を入力" class="s_name">
+      %li 資産: 行を選択 <input type="number" class="s_num"> <input type "text" placeholder="項目名を入力" class="s_name">
+      %li 負債: 行を選択 <input type="number" class="s_num"> <input type "text" placeholder="項目名を入力" class="s_name">
+  .year-main-conts
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          収入
+        %ol{class:"lay_lists"}
+          %li xxx
+          %li yyy
+          %li zzz
+      .conts-layout
+        .conts-layout__name
+          資産
+        %ol{class:"lay_lists"}
+          %li xxx
+          %li yyy
+          %li zzz
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          支出
+        %ol{class:"lay_lists"}
+          %li xxx
+          %li yyy
+          %li zzz
+      .conts-layout
+        .conts-layout__name
+          負債
+        %ol{class:"lay_lists"}
+          %li xxx
+          %li yyy
+          %li zzz

@@ -1,4 +1,12 @@
 class IncomesController < ApplicationController
-  def index
+
+  def create
   end
+
+  def update
+  end
+
+  def delete
+  end
+
 end

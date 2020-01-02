@@ -9,12 +9,16 @@
       .title__set
         .title__set__icon
           - if user_signed_in?
-            = link_to edit_user_path(current_user) do
+            = link_to new_year_path do
               %i{class:"fas fa-cog fa-2x"}
               -# = icon('fas', 'cog', class: 'icon')
   .right-menu
     - if user_signed_in?
-      .right-menu__list-signed
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to edit_user_path(current_user) do
+            <input type="button" class="btn1" value="登録編集">
+      .right-menu__list
         .right-menu__list__btn
           = link_to destroy_user_session_path, method: :delete do
             <input type="button" class="btn1" value="ログアウト">

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def index
+    if user_signed_in?
+      render template: 'years/index'
+    end
+  end
+
   def edit
   end
 
