@@ -3,6 +3,7 @@ class CreateMonths < ActiveRecord::Migration[5.0]
     create_table :months do |t|
       t.integer :month, limit: 1, null: false
       t.index :month
+      t.references :user, foreign_key: true
       t.references :year, foreign_key: true
       t.timestamps
     end

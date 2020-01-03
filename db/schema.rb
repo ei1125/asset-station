@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item"], name: "index_assets_on_item", using: :btree
     t.index ["user_id"], name: "index_assets_on_user_id", using: :btree
   end
 
@@ -29,33 +30,42 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["item"], name: "index_debts_on_item", using: :btree
     t.index ["user_id"], name: "index_debts_on_user_id", using: :btree
   end
 
   create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
     t.integer  "cf",         null: false
+    t.integer  "user_id"
     t.integer  "month_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item"], name: "index_expenses_on_item", using: :btree
     t.index ["month_id"], name: "index_expenses_on_month_id", using: :btree
+    t.index ["user_id"], name: "index_expenses_on_user_id", using: :btree
   end
 
   create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
     t.integer  "cf",         null: false
+    t.integer  "user_id"
     t.integer  "month_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item"], name: "index_incomes_on_item", using: :btree
     t.index ["month_id"], name: "index_incomes_on_month_id", using: :btree
+    t.index ["user_id"], name: "index_incomes_on_user_id", using: :btree
   end
 
   create_table "months", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "month",      limit: 1, null: false
+    t.integer  "user_id"
     t.integer  "year_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["month"], name: "index_months_on_month", using: :btree
+    t.index ["user_id"], name: "index_months_on_user_id", using: :btree
     t.index ["year_id"], name: "index_months_on_year_id", using: :btree
   end
 
@@ -79,13 +89,15 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["user_id"], name: "index_years_on_user_id", using: :btree
-    t.index ["year"], name: "index_years_on_year", using: :btree
   end
 
   add_foreign_key "assets", "users"
   add_foreign_key "debts", "users"
   add_foreign_key "expenses", "months"
+  add_foreign_key "expenses", "users"
   add_foreign_key "incomes", "months"
+  add_foreign_key "incomes", "users"
+  add_foreign_key "months", "users"
   add_foreign_key "months", "years"
   add_foreign_key "years", "users"
 end

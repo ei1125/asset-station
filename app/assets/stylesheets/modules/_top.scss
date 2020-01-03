@@ -178,6 +178,16 @@
     display: flex;
     &__title {
       width: 100px;
+      &__set {
+        display:flex;
+        .fa-cog {
+          color: grey;
+        }
+        .fa-trash-alt {
+          color: grey;
+          margin-left: 5px;
+        }
+      }
     }
     &__items {
       width: calc(100% - 250px);
@@ -189,6 +199,21 @@
         border: solid 1px ;/*線*/
         border-radius: 10px;/*角の丸み*/
         padding: 3px 3px;
+        .month {
+          display: flex;
+          .m-icon{
+            margin: 2px 0 0 2px;
+            display: flex;
+            text-decoration: none;
+            .fa-cog {
+              color: grey;
+            }
+            .fa-trash-alt {
+              color: grey;
+              margin-left: 2px;
+            }
+          }
+        }
       }
     }
     &__right {

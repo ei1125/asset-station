@@ -1,12 +1,14 @@
 class IncomesController < ApplicationController
 
-  def create
-  end
+  # def create
+  #   Income.create(income_params)
+  # end
 
-  def update
-  end
+  
+  # private
 
-  def delete
-  end
+  # def income_params
+  #   params.require(:income).permit(:item).merge(user_id: current_user.id, month_id: params[:month_id])
+  # end
 
 end

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
     if user_signed_in?
+      @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
+      @months = Month.where(user_id: current_user.id).includes(:user).order("month ASC")
       render template: 'years/index'
     end
   end

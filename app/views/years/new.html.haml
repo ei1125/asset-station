@@ -1,1 +1,12 @@
-= render 'form', { group: @group }
+.year-header
+  = form_for([@year], html: {class: "ym_input"}) do |f|
+    .year-header__input
+      = f.number_field :year, class: "y-num"
+      年
+      -# = f.number_field :month, class: "m-num"
+      -# 月
+      = f.submit "表示する"
+    .year-header__back
+      = link_to years_path do
+        <input type="button" value="戻る">
+= render 'main_demoform'

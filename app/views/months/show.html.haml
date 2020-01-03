@@ -1,0 +1,9 @@
+.year-header
+  .year-header__input
+    ="#{@year.year}年"
+    ="#{@month.month}月"
+  .year-header__back
+    = link_to years_path do
+      <input type="button" value="戻る">
+
+= render 'years/main_demoform'

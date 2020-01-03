@@ -132,134 +132,34 @@
 
 
 .sub-conts
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2019年
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-      .result
-        .month
-          １月
-        .cf
-          20万円
-      .result
-        .month
-          2月
-        .cf
-          20万円
-      .result
-        .month
-          3月
-        .cf
-          20万円
-      .result
-        .month
-          4月
-        .cf
-          20万円
-      .result
-        .month
-          5月
-        .cf
-          20万円
-      .result
-        .month
-          6月
-        .cf
-          20万円
-      .result
-        .month
-          7月
-        .cf
-          20万円
-      .result
-        .month
-          8月
-        .cf
-          20万円
-      .result
-        .month
-          9月
-        .cf
-          20万円
-      .result
-        .month
-          10月
-        .cf
-          20万円
-      .result
-        .month
-          11月
-        .cf
-          20万円
-      .result
-        .month
-          12月
-        .cf
-          20万円
-    .sub-conts__list__right
-      .total
-        合計CF：240万円
-
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2020年
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-      .result
-        .month
-          １月
-        .cf
-          20万円
-      .result
-        .month
-          2月
-        .cf
-          20万円
-      .result
-        .month
-          3月
-        .cf
-          20万円
-    .sub-conts__list__right
-      .total
-        合計CF：60万円
-
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2021年
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-      .result
-        .month
-          １月
-        .cf
-          20万円
-      .result
-        .month
-          2月
-        .cf
-          20万円
-      .result
-        .month
-          3月
-        .cf
-          20万円
-    .sub-conts__list__right
-      .total
-        合計CF：60万円
+  - @years.each do |years|
+    .sub-conts__list
+      .sub-conts__list__title
+        .sub-conts__list__title__year
+          ="#{years.year}年"
+        .sub-conts__list__title__set
+          = link_to new_year_month_path(years.id), class: "y-icon" do
+            %i{class:"fas fa-cog"}
+          = link_to year_path(years.id), method: :delete, class: "y-icon" do
+            %i{class:"fas fa-trash-alt"}
+      .sub-conts__list__items
+        .index
+          .month
+            月:
+          .cf
+            CF:
+        - @months.where(year_id: years.id).each do |months|
+          .result
+            .month
+              ="#{months.month}月"
+              .m-icon
+                = link_to year_month_path(years.id, months.id), class: "m-icon" do
+                  %i{class:"fas fa-cog"}
+                = link_to year_month_path(years.id, months.id), method: :delete, class: "m-icon" do
+                  %i{class:"fas fa-trash-alt"}
+            .cf
+              20万円
+        
+      .sub-conts__list__right
+        .total
+          合計CF：240万円
