@@ -1,0 +1,69 @@
+.year-header
+  .year-header__input
+    ="#{@year.year}年"
+    ="#{@month.month}月"
+  .year-header__back
+    = link_to years_path do
+      <input type="button" value="戻る">
+
+-# = render 'main_form', {year: @year, month: @month}
+.year-main
+  .year-main-conts
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          収入
+        .conts-layout__lists
+          = form_for([@year, @month, @income]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "更新する"
+          %ol{class:"lay_lists"}
+            - @incomes.each do |income|
+              %li 
+                = form_for([@year, @month, income]) do |f|
+                  = f.text_field :item
+                  = f.submit "編集の更新"
+                  = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "i-icon" do
+                    %i{class:"fas fa-ban"}
+                
+      .conts-layout
+        .conts-layout__name
+          支出
+        .conts-layout__lists
+          = form_for([@year, @month, @expense]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "更新する"
+              = link_to "編集", edit_year_month_path(@year, @month)
+          %ol{class:"lay_lists"}
+            - @expenses.each do |expense|
+              %li 
+                = form_for([@year, @month, expense]) do |f|
+                  = f.text_field :item
+                  = f.submit "編集の更新"
+                  = link_to year_month_expense_path(@year, @month, expense.id), method: :delete, class: "i-icon" do
+                    %i{class:"fas fa-ban"}
+
+
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          資産
+        .conts-layout__lists
+          .lay-form
+            <input type="number" class="s_num" placeholder="番号"> <input type "text" placeholder="項目名を入力" class="s_name">
+          %ol{class:"lay_lists"}
+            %li xxx
+            %li yyy
+            %li zzz
+      .conts-layout
+        .conts-layout__name
+          負債
+        .conts-layout__lists
+          .lay-form
+            <input type="number" class="s_num" placeholder="番号"> <input type "text" placeholder="項目名を入力" class="s_name">
+          %ol{class:"lay_lists"}
+            %li xxx
+            %li yyy
+            %li zzz

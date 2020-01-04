@@ -43,24 +43,23 @@
           %tr
             %th{class:"item"} 項目
             %th キャッシュフロー
-          - @incomes.each do |income|
-            %tr
-              %td 
-                ="#{income.item}"
-              %td
-                = form_for([@year, @month, income]) do |f|
-                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
-                  万円
-                  = f.submit "更新"
+          %tr
+            %td デモ給料
+            %td <input type="number"> 万円
+          %tr
+            %td デモ配当
+            %td <input type="number"> 万円
+          %tr
+            %td デモ不動産
+            %td <input type="number"> 万円
       .left-conts__list__r-side
         .when
-          ="#{@year.year}年#{@month.month}月"
+          <input type="month"> 
         .edit
-          <input type="month">
           <input type="button" value="新規">
           <input type="button" value="更新">
         .total
-          ="総収入:#{total_cf(@incomes)}万円"
+          総収入: 58万円
     .left-conts__list
       .left-conts__list__title
         .left-conts__list__title__name
@@ -70,23 +69,22 @@
           %tr
             %th{class:"item"} 項目
             %th キャッシュフロー
-          - @expenses.each do |expense|
-            %tr
-              %td 
-                ="#{expense.item}"
-              %td
-                = form_for([@year, @month, expense]) do |f|
-                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
-                  万円
-                  = f.submit "更新"
+          %tr
+            %td 税金
+            %td <input type="number" class="form"> 万円
+          %tr
+            %td 住宅ローン
+            %td <input type="number" class="form"> 万円
+          %tr
+            %td 自動車ローン
+            %td <input type="number" class="form"> 万円
+            
       .left-conts__list__r-side
+        
         .total
-          %ul
-            %li
-              ="総支出:#{total_cf(@expenses)}万円"
-            %li
-              ="月のCF:#{profit_cf(@month)}万円"
+          総収入: 43万円
           
+  
   .right-conts
     .right-conts__list
       .right-conts__list__title
@@ -131,36 +129,137 @@
         .total
           合計:1000万円
           <input type="button" value="更新">
+
+
 .sub-conts
-  - @years.each do |years|
-    .sub-conts__list
-      .sub-conts__list__title
-        .sub-conts__list__title__year
-          ="#{years.year}年"
-        .sub-conts__list__title__set
-          = link_to new_year_month_path(years.id), class: "y-icon" do
-            %i{class:"fas fa-cog"}
-          = link_to year_path(years.id), method: :delete, class: "y-icon" do
-            %i{class:"fas fa-trash-alt"}
-      .sub-conts__list__items
-        .index
-          .month
-            月:
-          .cf
-            CF:
-        - @months.where(year_id: years.id).each do |months|
-          .result
-            .month
-              ="#{months.month}月"
-              .m-icon
-                = link_to year_month_path(years.id, months.id), class: "m-icon" do
-                  %i{class:"fas fa-cog"}
-                = link_to year_month_path(years.id, months.id), method: :delete, class: "m-icon" do
-                  %i{class:"fas fa-trash-alt"}
-                = link_to "cf入力", year_month_incomes_path(years.id, months.id)
-            .cf
-              ="月のCF:#{profit_cf(months)}万円"
-        
-      .sub-conts__list__right
-        .total
-          ="合計CF:#{profit_cf(years)}万円"
+  .sub-conts__list
+    .sub-conts__list__title
+      .sub-conts__list__title__year
+        2019年
+    .sub-conts__list__items
+      .index
+        .month
+          月:
+        .cf
+          CF:
+      .result
+        .month
+          １月
+        .cf
+          20万円
+      .result
+        .month
+          2月
+        .cf
+          20万円
+      .result
+        .month
+          3月
+        .cf
+          20万円
+      .result
+        .month
+          4月
+        .cf
+          20万円
+      .result
+        .month
+          5月
+        .cf
+          20万円
+      .result
+        .month
+          6月
+        .cf
+          20万円
+      .result
+        .month
+          7月
+        .cf
+          20万円
+      .result
+        .month
+          8月
+        .cf
+          20万円
+      .result
+        .month
+          9月
+        .cf
+          20万円
+      .result
+        .month
+          10月
+        .cf
+          20万円
+      .result
+        .month
+          11月
+        .cf
+          20万円
+      .result
+        .month
+          12月
+        .cf
+          20万円
+    .sub-conts__list__right
+      .total
+        合計CF：240万円
+
+  .sub-conts__list
+    .sub-conts__list__title
+      .sub-conts__list__title__year
+        2020年
+    .sub-conts__list__items
+      .index
+        .month
+          月:
+        .cf
+          CF:
+      .result
+        .month
+          １月
+        .cf
+          20万円
+      .result
+        .month
+          2月
+        .cf
+          20万円
+      .result
+        .month
+          3月
+        .cf
+          20万円
+    .sub-conts__list__right
+      .total
+        合計CF：60万円
+
+  .sub-conts__list
+    .sub-conts__list__title
+      .sub-conts__list__title__year
+        2021年
+    .sub-conts__list__items
+      .index
+        .month
+          月:
+        .cf
+          CF:
+      .result
+        .month
+          １月
+        .cf
+          20万円
+      .result
+        .month
+          2月
+        .cf
+          20万円
+      .result
+        .month
+          3月
+        .cf
+          20万円
+    .sub-conts__list__right
+      .total
+        合計CF：60万円
