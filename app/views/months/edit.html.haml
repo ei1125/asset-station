@@ -18,14 +18,15 @@
             .year-header__input
               = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
               = f.submit "更新する"
-              = link_to "編集", edit_year_month_path(@year, @month)
           %ol{class:"lay_lists"}
             - @incomes.each do |income|
               %li 
-                ="#{income.item}"
-                = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "i-icon" do
-                  %i{class:"fas fa-ban"}
-
+                = form_for([@year, @month, income]) do |f|
+                  = f.text_field :item
+                  = f.submit "編集の更新"
+                  = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "i-icon" do
+                    %i{class:"fas fa-ban"}
+                
       .conts-layout
         .conts-layout__name
           支出
@@ -38,9 +39,12 @@
           %ol{class:"lay_lists"}
             - @expenses.each do |expense|
               %li 
-                ="#{expense.item}"
-                = link_to year_month_expense_path(@year, @month, expense.id), method: :delete, class: "i-icon" do
-                  %i{class:"fas fa-ban"}
+                = form_for([@year, @month, expense]) do |f|
+                  = f.text_field :item
+                  = f.submit "編集の更新"
+                  = link_to year_month_expense_path(@year, @month, expense.id), method: :delete, class: "i-icon" do
+                    %i{class:"fas fa-ban"}
+
 
     .main-conts__box
       .conts-layout

@@ -72,9 +72,6 @@
         }
         .lay-form {
           margin: 20px;
-          .s_num {
-            width: 60px;
-          }
           .s_name {
             width: 150px;
           }
@@ -84,6 +81,10 @@
           li {
             font-size: 25px;
             margin-bottom: 5px;
+            .fa-ban {
+              font-size: 20px;
+              color: red;
+            }
           }
         }
       }

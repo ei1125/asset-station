@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20200101070245) do
 
   create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
-    t.integer  "money",      null: false
+    t.integer  "money"
     t.integer  "deposit"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20200101070245) do
 
   create_table "debts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",                  null: false
-    t.integer  "money",                 null: false
+    t.integer  "money"
     t.float    "rate",       limit: 24
     t.integer  "user_id"
     t.datetime "created_at",            null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20200101070245) do
 
   create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
-    t.integer  "cf",         null: false
+    t.integer  "cf"
     t.integer  "user_id"
     t.integer  "month_id"
     t.datetime "created_at", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20200101070245) do
 
   create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
-    t.integer  "cf",         null: false
+    t.integer  "cf"
     t.integer  "user_id"
     t.integer  "month_id"
     t.datetime "created_at", null: false

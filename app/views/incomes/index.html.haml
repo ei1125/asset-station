@@ -43,23 +43,24 @@
           %tr
             %th{class:"item"} 項目
             %th キャッシュフロー
-          %tr
-            %td 給料
-            %td <input type="number"> 万円
-          %tr
-            %td 配当
-            %td <input type="number"> 万円
-          %tr
-            %td 不動産
-            %td <input type="number"> 万円
+          - @incomes.each do |income|
+            %tr
+              %td 
+                ="#{income.item}"
+              %td
+                = form_for([@year, @month, income]) do |f|
+                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
+                  万円
+                  = f.submit "更新"
       .left-conts__list__r-side
         .when
-          <input type="month"> 
+          ="#{@year.year}年#{@month.month}月"
         .edit
+          <input type="month">
           <input type="button" value="新規">
           <input type="button" value="更新">
         .total
-          総収入: 万円
+          ="総収入:#{total_cf(@incomes)}万円"
     .left-conts__list
       .left-conts__list__title
         .left-conts__list__title__name
@@ -69,22 +70,23 @@
           %tr
             %th{class:"item"} 項目
             %th キャッシュフロー
-          %tr
-            %td 税金
-            %td <input type="number" class="form"> 万円
-          %tr
-            %td 住宅ローン
-            %td <input type="number" class="form"> 万円
-          %tr
-            %td 自動車ローン
-            %td <input type="number" class="form"> 万円
-            
+          - @expenses.each do |expense|
+            %tr
+              %td 
+                ="#{expense.item}"
+              %td
+                = form_for([@year, @month, expense]) do |f|
+                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
+                  万円
+                  = f.submit "更新"
       .left-conts__list__r-side
-        
         .total
-          総収入: 万円
+          %ul
+            %li
+              ="総支出:#{total_cf(@expenses)}万円"
+            %li
+              ="月のCF:#{profit_cf(@month)}万円"
           
-  
   .right-conts
     .right-conts__list
       .right-conts__list__title
@@ -106,7 +108,7 @@
             %td <input type="number"> 万円
       .right-conts__list__bottom
         .total
-          合計:万円
+          合計:1000万円
     .right-conts__list
       .right-conts__list__title
         .right-conts__list__title__name
@@ -127,7 +129,7 @@
             %td <input type="number"> 万円
       .right-conts__list__bottom
         .total
-          合計:万円
+          合計:1000万円
           <input type="button" value="更新">
 .sub-conts
   - @years.each do |years|

@@ -2,18 +2,35 @@ class MonthsController < ApplicationController
   
   def show
     @year = Year.find(params[:year_id])
-    @month = Month.find(params[:month_id])
+    @month = Month.find(params[:id])
+    @income = Income.new
+    @incomes = @month.incomes.includes(:user)
+    @expense = Expense.new
+    @expenses = @month.expenses.includes(:user)
   end
-
 
   def new
     @year = Year.find(params[:year_id])
     @month = Month.new
   end
+
+  def edit
+    @year = Year.find(params[:year_id])
+    @month = Month.find(params[:id])
+    @income = Income.new
+    @incomes = @month.incomes.includes(:user)
+    @expense = Expense.new
+    @expenses = @month.expenses.includes(:user)
+  end
   
   def create
-    Month.create(month_params)
-    redirect_to root_path
+    @year = Year.find(params[:year_id])
+    @month = Month.new(month_params)
+    if @month.save
+      redirect_to year_month_path(@year, @month)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy

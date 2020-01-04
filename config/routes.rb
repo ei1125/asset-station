@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root "users#index"
   resources :users, only: [:edit, :update]
   resources :years do
-    resources :months, only: [:new, :show, :create, :update, :destroy] do
-      resources :income, only: [:create, :update, :destroy]
-      resources :expense, only: [:create, :update, :destroy]
+    resources :months do
+      resources :incomes, only: [:index, :create, :update, :destroy]
+      resources :expenses, only: [:create, :update, :destroy]
     end
   end
 end
