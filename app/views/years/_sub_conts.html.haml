@@ -1,0 +1,33 @@
+.sub-conts
+  - @years.each do |years|
+    .sub-conts__list
+      .sub-conts__list__title
+        .sub-conts__list__title__year
+          ="#{years.year}年"
+        .sub-conts__list__title__set
+          = link_to new_year_month_path(years.id), class: "y-icon" do
+            %i{class:"fas fa-cog"}
+          = link_to year_path(years.id), method: :delete, class: "y-icon" do
+            %i{class:"fas fa-trash-alt"}
+      .sub-conts__list__items
+        .index
+          .month
+            月:
+          .cf
+            CF:
+        - @months.where(year_id: years.id).each do |months|
+          .result
+            .month
+              ="#{months.month}月"
+              .m-icon
+                = link_to year_month_path(years.id, months.id), class: "m-icon" do
+                  %i{class:"fas fa-cog"}
+                = link_to year_month_path(years.id, months.id), method: :delete, class: "m-icon" do
+                  %i{class:"fas fa-trash-alt"}
+                = link_to "cf入力", year_month_incomes_path(years.id, months.id)
+            .cf
+              ="月のCF:#{profit_cf(months)}万円"
+        
+      .sub-conts__list__right
+        .total
+          ="合計CF:#{profit_cf(years)}万円"

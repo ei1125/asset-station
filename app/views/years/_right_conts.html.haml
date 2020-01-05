@@ -1,0 +1,37 @@
+.right-conts
+  .right-conts__list
+    .right-conts__list__title
+      .right-conts__list__title__name
+        ="#{@last_month_assets.month}月の資産"
+    .right-conts__list__items
+      %table{border:"1",class:"table-items"}
+        %tr
+          %th{class:"item"} 項目
+          %th 金額
+        - @last_assets.each do |asset|
+          %tr
+            %td 
+              ="#{asset.item}"
+            %td
+              ="#{asset.money}"
+    .right-conts__list__bottom
+      .total
+        ="合計:#{total_money(@last_assets)}万円"
+  .right-conts__list
+    .right-conts__list__title
+      .right-conts__list__title__name
+        ="#{@last_month_debts.month}月の負債"
+    .right-conts__list__items
+      %table{border:"1",class:"table-items"}
+        %tr
+          %th{class:"item"} 項目
+          %th 金額
+        - @last_debts.each do |debt|
+          %tr
+            %td 
+              ="#{debt.item}"
+            %td
+              ="#{debt.money}"
+    .right-conts__list__bottom
+      .total
+        ="合計:#{total_money(@last_debts)}万円"

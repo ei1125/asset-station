@@ -6,4 +6,6 @@ class Year < ApplicationRecord
   belongs_to :user
   has_many :incomes, through: :months
   has_many :expenses, through: :months
+  has_many :assets, through: :months
+  has_many :debts, through: :months
 end

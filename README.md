@@ -55,32 +55,39 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |when|integer|null: false|
+|month|integer|null: false|
 |year_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :incomes
 - has_many :expenses
 - belongs_to :year
+- has_many :assets, dependent: :destroy
 
 ## yearsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |when|integer|null: false|
+|year|integer|null: false|
 
 ### Association
-- has_many :months
+- has_many :months, dependent: :destroy
+- has_many :assets, through: :months
 
 ## Assetsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |item|string|null: false|
-|asset|integer|null: false|
+|money|integer|null: false|
 |deposit|integer||
+|month_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to :month
+- has_one :year, through: :month
 
 ## Debtsテーブル
 

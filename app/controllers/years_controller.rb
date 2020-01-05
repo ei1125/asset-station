@@ -1,8 +1,14 @@
 class YearsController < ApplicationController
 
-  def index
+  def index #トップページ（ログイン後):２
     @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
     @months = Month.where(user_id: current_user.id).includes(:user).order("month ASC")
+    
+    @last_month_assets = Month.includes(:user).where(user_id: current_user.id).joins(:assets,:year).order("year DESC","month DESC").first
+    @last_assets = @last_month_assets.assets
+    @last_month_debts = Month.includes(:user).where(user_id: current_user.id).joins(:debts,:year).order("year DESC","month DESC").first
+    @last_debts = @last_month_debts.debts
+  
   end
 
   def new

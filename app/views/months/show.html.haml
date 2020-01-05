@@ -2,6 +2,8 @@
   .year-header__input
     ="#{@year.year}年"
     ="#{@month.month}月"
+    = link_to "編集", edit_year_month_path(@year, @month)
+    = link_to "金額を入力", year_month_assets_path(@year, @month)
   .year-header__back
     = link_to years_path do
       <input type="button" value="戻る">
@@ -17,8 +19,7 @@
           = form_for([@year, @month, @income]) do |f|
             .year-header__input
               = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
-              = f.submit "更新する"
-              = link_to "編集", edit_year_month_path(@year, @month)
+              = f.submit "追加する"
           %ol{class:"lay_lists"}
             - @incomes.each do |income|
               %li 
@@ -33,8 +34,7 @@
           = form_for([@year, @month, @expense]) do |f|
             .year-header__input
               = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
-              = f.submit "更新する"
-              = link_to "編集", edit_year_month_path(@year, @month)
+              = f.submit "追加する"
           %ol{class:"lay_lists"}
             - @expenses.each do |expense|
               %li 
@@ -47,19 +47,27 @@
         .conts-layout__name
           資産
         .conts-layout__lists
-          .lay-form
-            <input type="number" class="s_num" placeholder="番号"> <input type "text" placeholder="項目名を入力" class="s_name">
+          = form_for([@year, @month, @asset]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
           %ol{class:"lay_lists"}
-            %li xxx
-            %li yyy
-            %li zzz
+            - @assets.each do |asset|
+              %li 
+                ="#{asset.item}"
+                = link_to year_month_asset_path(@year, @month, asset.id), method: :delete, class: "i-icon" do
+                  %i{class:"fas fa-ban"}
       .conts-layout
         .conts-layout__name
           負債
         .conts-layout__lists
-          .lay-form
-            <input type="number" class="s_num" placeholder="番号"> <input type "text" placeholder="項目名を入力" class="s_name">
+          = form_for([@year, @month, @debt]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
           %ol{class:"lay_lists"}
-            %li xxx
-            %li yyy
-            %li zzz
+            - @debts.each do |debt|
+              %li 
+                ="#{debt.item}"
+                = link_to year_month_debt_path(@year, @month, debt.id), method: :delete, class: "i-icon" do
+                  %i{class:"fas fa-ban"}

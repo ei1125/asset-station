@@ -5,6 +5,7 @@ class CreateAssets < ActiveRecord::Migration[5.0]
       t.integer :money
       t.integer :deposit
       t.references :user, foreign_key: true
+      t.references :month, foreign_key: true
       t.timestamps
     end
   end

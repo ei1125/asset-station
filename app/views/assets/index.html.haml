@@ -1,0 +1,111 @@
+.year-header
+  .year-header__input
+    ="#{@year.year}年"
+    ="#{@month.month}月"
+  .year-header__back
+    = link_to years_path do
+      <input type="button" value="戻る">
+
+-# = render 'main_form', {year: @year, month: @month}
+.year-main
+  .year-main-conts
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          収入
+        .conts-layout__lists
+          = form_for([@year, @month, @income]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
+              = link_to "編集", edit_year_month_path(@year, @month)
+          %table{border:"1",class:"table-lay-items"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
+            - @incomes.each do |income|
+              %tr
+                %td 
+                  ="#{income.item}"
+                %td{class:"lay-input"}
+                  = form_for([@year, @month, income]) do |f|
+                    = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
+                    万円
+                    = f.submit "更新"
+                  = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "ld-icon" do
+                    %i{class:"fas fa-ban"}
+
+      .conts-layout
+        .conts-layout__name
+          支出
+        .conts-layout__lists
+          = form_for([@year, @month, @expense]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
+              = link_to "編集", edit_year_month_path(@year, @month)
+          %table{border:"1",class:"table-lay-items"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
+            - @expenses.each do |expense|
+              %tr
+                %td 
+                  ="#{expense.item}"
+                %td{class:"lay-input"}
+                  = form_for([@year, @month, expense]) do |f|
+                    = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
+                    万円
+                    = f.submit "更新"
+                  = link_to year_month_expense_path(@year, @month, expense.id), method: :delete, class: "ld-icon" do
+                    %i{class:"fas fa-ban"}
+
+    .main-conts__box
+      .conts-layout
+        .conts-layout__name
+          資産
+        .conts-layout__lists
+          = form_for([@year, @month, @asset]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
+              = link_to "編集", edit_year_month_path(@year, @month)
+          %table{border:"1",class:"table-lay-items"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
+            - @assets.each do |asset|
+              %tr
+                %td 
+                  ="#{asset.item}"
+                %td{class:"lay-input"}
+                  = form_for([@year, @month, asset]) do |f|
+                    = f.text_field :money, placeholder:"隣のボタンで更新", class:"cf-text"
+                    万円
+                    = f.submit "更新"
+                  = link_to year_month_asset_path(@year, @month, asset.id), method: :delete, class: "ld-icon" do
+                    %i{class:"fas fa-ban"}
+      .conts-layout
+        .conts-layout__name
+          負債
+        .conts-layout__lists
+          = form_for([@year, @month, @debt]) do |f|
+            .year-header__input
+              = f.text_field :item, placeholder:"項目名を入力", class:"s_name"
+              = f.submit "追加する"
+              = link_to "編集", edit_year_month_path(@year, @month)
+          %table{border:"1",class:"table-lay-items"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
+            - @debts.each do |debt|
+              %tr
+                %td 
+                  ="#{debt.item}"
+                %td{class:"lay-input"}
+                  = form_for([@year, @month, debt]) do |f|
+                    = f.text_field :money, placeholder:"隣のボタンで更新", class:"cf-text"
+                    万円
+                    = f.submit "更新"
+                  = link_to year_month_debt_path(@year, @month, debt.id), method: :delete, class: "ld-icon" do
+                    %i{class:"fas fa-ban"}

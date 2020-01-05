@@ -1,26 +1,34 @@
 class MonthsController < ApplicationController
   
-  def show
+  def show #ある月の項目追加入力：４
     @year = Year.find(params[:year_id])
     @month = Month.find(params[:id])
     @income = Income.new
     @incomes = @month.incomes.includes(:user)
     @expense = Expense.new
     @expenses = @month.expenses.includes(:user)
+    @asset = Asset.new
+    @assets = @month.assets.includes(:user)
+    @debt = Debt.new
+    @debts = @month.debts.includes(:user)
   end
 
-  def new
+  def new #月を入力ページ：３
     @year = Year.find(params[:year_id])
     @month = Month.new
   end
 
-  def edit
+  def edit #ある月のデータ編集：５
     @year = Year.find(params[:year_id])
     @month = Month.find(params[:id])
     @income = Income.new
     @incomes = @month.incomes.includes(:user)
     @expense = Expense.new
     @expenses = @month.expenses.includes(:user)
+    @asset = Asset.new
+    @assets = @month.assets.includes(:user)
+    @debt = Debt.new
+    @debts = @month.debts.includes(:user)
   end
   
   def create

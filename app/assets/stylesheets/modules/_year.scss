@@ -28,23 +28,6 @@
   height: calc(100vh - 60px);
   background-color: #eceaea;
   display: flex;
-  // .year-side-bar {
-  //   width: 350px;
-  //   background-color: #ffffff;
-  //   .side_input {
-  //     margin: 10px 0;
-  //     li {
-  //       margin-bottom: 10px;
-  //       font-size: 18px;
-  //     }
-  //     .s_num {
-  //       width: 40px;
-  //     }
-  //     .s_name {
-  //       width: 150px;
-  //     }
-  //   }
-  // }
   .year-main-conts {
     width: 100vw;
     height: 100%;
@@ -76,16 +59,27 @@
             width: 150px;
           }
         }
+        // month-showで使用
         .lay_lists {
           margin: 10px 20px;
           li {
-            font-size: 25px;
+            font-size: 20px;
             margin-bottom: 5px;
             .fa-ban {
               font-size: 20px;
               color: red;
             }
           }
+        }
+        // asset-indexで使用
+        .lay-input {
+          font-size: 20px;
+          display: flex;
+            .ld-icon {
+              color: red;
+              margin: 3px 0 0 3px;
+            }
+          
         }
       }
     }

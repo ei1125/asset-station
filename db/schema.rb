@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.integer  "money"
     t.integer  "deposit"
     t.integer  "user_id"
+    t.integer  "month_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item"], name: "index_assets_on_item", using: :btree
+    t.index ["month_id"], name: "index_assets_on_month_id", using: :btree
     t.index ["user_id"], name: "index_assets_on_user_id", using: :btree
   end
 
@@ -28,9 +30,11 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.integer  "money"
     t.float    "rate",       limit: 24
     t.integer  "user_id"
+    t.integer  "month_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.index ["item"], name: "index_debts_on_item", using: :btree
+    t.index ["month_id"], name: "index_debts_on_month_id", using: :btree
     t.index ["user_id"], name: "index_debts_on_user_id", using: :btree
   end
 
@@ -91,7 +95,9 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.index ["user_id"], name: "index_years_on_user_id", using: :btree
   end
 
+  add_foreign_key "assets", "months"
   add_foreign_key "assets", "users"
+  add_foreign_key "debts", "months"
   add_foreign_key "debts", "users"
   add_foreign_key "expenses", "months"
   add_foreign_key "expenses", "users"
