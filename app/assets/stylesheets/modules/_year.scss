@@ -1,32 +1,30 @@
 .year-header {
   width: 100vw;
-  height: 70px;
-  background-color: #dfd7d7;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  &__input {
-    margin: 10px;
-    font-size: 25px;
-    .y-num {
-      width: 90px;
+  height: 15vh;
+  background-color: $header;
+  // display: flex;
+  // justify-content: space-between;
+  &__left {
+    margin: 10px 10px 0;
+    &__logo {
+      font-size: 35px;
     }
-    .m-num {
-      width: 50px;
+    &__input {
+      font-size: 25px;
+      .y-num {
+        width: 90px;
+      }
+      .m-num {
+        width: 50px;
+      }
     }
-  }
-  &__back {
-    margin: 5px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
 }
 
 .year-main {
   width: 100vw;
-  height: calc(100vh - 60px);
-  background-color: #eceaea;
+  height: 85vh;
+  background-color: $main_conts;
   display: flex;
   .year-main-conts {
     width: 100vw;
@@ -42,6 +40,7 @@
         margin: 10px;
         padding: 3px;
         display: flex;
+        background-color: $main_block;
         &__name {
           font-size: 30px;
           line-height: 30px;
@@ -53,34 +52,48 @@
           padding: 3px;
           text-align: center;
         }
-        .lay-form {
+        &__lists {
           margin: 20px;
-          .s_name {
-            width: 150px;
-          }
-        }
-        // month-showで使用
-        .lay_lists {
-          margin: 10px 20px;
-          li {
-            font-size: 20px;
-            margin-bottom: 5px;
-            .fa-ban {
+          &__input {
+            display: flex;
+            .s_name {
+              width: 150px;
+            }
+            .plus {
+              margin: 4px;
+            }
+            .fa-edit {
               font-size: 20px;
-              color: red;
+              color: grey;
+              margin: 4px 2px 0;
             }
           }
-        }
-        // asset-indexで使用
-        .lay-input {
-          font-size: 20px;
-          display: flex;
-            .ld-icon {
-              color: red;
-              margin: 3px 0 0 3px;
-            }
           
+          
+          // month-showで使用
+          .lay_lists {
+            margin: 10px 20px;
+            li {
+              font-size: 20px;
+              margin-bottom: 5px;
+              .fa-ban {
+                font-size: 20px;
+                color: red;
+              }
+            }
+          }
+          // asset-indexで使用
+          .lay-input {
+            font-size: 20px;
+            display: flex;
+              .ld-icon {
+                color: red;
+                margin: 3px 0 0 3px;
+              }
+            
+          }
         }
+        
       }
     }
   }

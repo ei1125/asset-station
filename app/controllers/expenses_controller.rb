@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
     if expense_params[:cf].nil?
       redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
     else
-      redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/incomes"
+      redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/assets"
     end
   end
 

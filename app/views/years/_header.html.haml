@@ -1,12 +1,20 @@
 .header
   .header-left
     .title
-      .title__name
-        - if user_signed_in?
-          = current_user.name
-        - else
-          ログインしていません
+      .title__left
+        .title__left__logo
+          = link_to "ASSET STATION", years_path, class: "asset-logo"
+        .title__left__name
+          .title__left__name__font
+            - if user_signed_in?
+              = current_user.name
+            - else
+              non user
       .title__set
+        .title__set__chart
+          = link_to "グラフを表示  ",chart_years_path
+        .title__set__name
+          入力を始める
         .title__set__icon
           - if user_signed_in?
             = link_to new_year_path do

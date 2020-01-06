@@ -24,9 +24,8 @@
         .when
           ="#{@year.year}年#{@month.month}月"
         .edit
-          <input type="month">
-          <input type="button" value="新規">
-          <input type="button" value="更新">
+          <input type="month" class="r-search">
+          <input type="button" value="検索">
         .total
           ="総収入:#{total_cf(@incomes)}万円"
     .left-conts__list

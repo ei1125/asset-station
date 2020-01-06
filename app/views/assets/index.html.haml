@@ -1,10 +1,12 @@
+-# ここはrender禁止
 .year-header
-  .year-header__input
-    ="#{@year.year}年"
-    ="#{@month.month}月"
-  .year-header__back
-    = link_to years_path do
-      <input type="button" value="戻る">
+  .year-header__left
+    .year-header__left__logo
+      = link_to "ASSET STATION", year_month_incomes_path(@year, @month), class: "asset-logo"
+    .year-header__left__input
+      ="#{@year.year}年"
+      ="#{@month.month}月"
+      = link_to "編集", edit_year_month_path(@year, @month)
 
 -# = render 'main_form', {year: @year, month: @month}
 .year-main

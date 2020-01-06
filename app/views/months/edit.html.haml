@@ -1,10 +1,10 @@
 .year-header
-  .year-header__input
-    ="#{@year.year}年"
-    ="#{@month.month}月"
-  .year-header__back
-    = link_to years_path do
-      <input type="button" value="戻る">
+  .year-header__left
+    .year-header__left__logo
+      = link_to "ASSET STATION", years_path, class: "asset-logo"
+    .year-header__left__input
+      ="#{@year.year}年"
+      ="#{@month.month}月"
 
 -# = render 'main_form', {year: @year, month: @month}
 .year-main

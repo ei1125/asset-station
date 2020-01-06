@@ -1,12 +1,10 @@
 .year-header
-  = form_for([@year], html: {class: "ym_input"}) do |f|
-    .year-header__input
-      = f.number_field :year, class: "y-num"
-      年
-      -# = f.number_field :month, class: "m-num"
-      -# 月
-      = f.submit "表示する"
-    .year-header__back
-      = link_to years_path do
-        <input type="button" value="戻る">
+  .year-header__left
+    .year-header__left__logo
+      = link_to "ASSET STATION", years_path, class: "asset-logo"
+    .year-header__left__input
+      = form_for([@year], html: {class: "ym_input"}) do |f|
+        = f.number_field :year, class: "y-num"
+        年
+        = f.submit "表示する"
 = render 'main_demoform'
