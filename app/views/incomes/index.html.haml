@@ -25,7 +25,11 @@
           ="#{@year.year}年#{@month.month}月"
         .edit
           <input type="month" class="r-search">
-          <input type="button" value="検索">
+          .edit__btn
+            <input type="button" value="検索">
+            = link_to year_month_path(@year, @month), class: "m-icon" do
+              %i{class:"fas fa-cog"}
+
         .total
           ="総収入:#{total_cf(@incomes)}万円"
     .left-conts__list

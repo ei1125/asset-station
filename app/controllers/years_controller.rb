@@ -9,23 +9,26 @@ class YearsController < ApplicationController
     @last_month_debts = Month.includes(:user).where(user_id: current_user.id).joins(:debts,:year).order("year DESC","month DESC").first
     @last_debts = @last_month_debts.debts
   end
+  
+  def show #月単位のグラフ
+    @year = Year.find(params[:id])
+    @months = @year.months
 
-  def chart
-    # @months = Month.joins(:year).where(user_id: current_user.id).includes(:user).order("year ASC","month ASC")
+    # @months_cf = change_array(@months)
+  end
+
+  def chart #年単位のグラフ
     @years = Year.where(user_id: current_user.id).includes(:user)
    
-    def year_array(years)
-      array = []
-      years.each do |year|
-        # if month.incomes.sum(:cf).present?
-        total_cf = year.incomes.sum(:cf) - year.expenses.sum(:cf)
-        array << [ year.year, total_cf ]
-        # end
-      end
-      return array
-    end
-
-    @years_cf = year_array(@years)
+    # def year_array(years)
+    #   array = []
+    #   years.each do |year|
+    #     total_cf = year.incomes.sum(:cf) - year.expenses.sum(:cf)
+    #     array << [ year.year, total_cf ]
+    #   end
+    #   return array
+    # end
+    # @years_cf = year_array(@years)
 
   end
 

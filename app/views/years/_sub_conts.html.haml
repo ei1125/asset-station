@@ -7,6 +7,7 @@
         .sub-conts__list__title__set
           = link_to new_year_month_path(years.id), class: "y-icon" do
             %i{class:"fas fa-cog"}
+          = link_to "グラフ", year_path(years.id)
           = link_to year_path(years.id), method: :delete, class: "y-icon" do
             %i{class:"fas fa-trash-alt"}
       .sub-conts__list__items

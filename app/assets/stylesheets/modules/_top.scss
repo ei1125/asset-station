@@ -134,8 +134,21 @@
         overflow-y: scroll;
         .when {
           display: flex;
+          
+        }
+        .edit {
+          
           .r-search {
-            width: 40px;
+            width: 130px;
+          }
+          &__btn {
+            display: flex;
+            margin: 3px 0;
+            .fa-cog {
+              font-size: 20px;
+              color: grey;
+              margin: 0 5px;
+            }
           }
         }
         .total {
