@@ -14,18 +14,32 @@ class AssetsController < ApplicationController
   end
   
   def create
-    asset = Asset.create(asset_params)
-    if asset_params[:money].nil?
-      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
-    else
-      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
-    end
+    @year = Year.find(params[:year_id])
+    @asset = Asset.new(asset_params)
+    @asset.save
+      respond_to do |format|
+        format.json
+        format.html {
+          if income_params[:cf].nil?
+            redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+          else
+            redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
+          end
+        }
+      end
+
+    # asset = Asset.create(asset_params)
+    # if asset_params[:money].nil?
+    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+    # else
+    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
+    # end
   end
 
   def destroy
     asset = Asset.find(params[:id])
     asset.destroy
-    redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+    # redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
   end
 
   def update

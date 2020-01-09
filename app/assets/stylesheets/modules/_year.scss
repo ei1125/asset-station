@@ -29,7 +29,7 @@
   .year-main-conts {
     width: 100vw;
     height: 100%;
-    .main-conts__box {
+    .main-conts__box {//４等分
       width: 100%;
       height: 50%;
       display: flex;
@@ -41,19 +41,24 @@
         padding: 3px;
         display: flex;
         background-color: $main_block;
+        position: relative;
         &__name {
+          position: absolute;
+          top: 10px;
+          left: 10px;
           font-size: 30px;
           line-height: 30px;
           width: 90px;
           height: 36px;
-          margin: 10px 20px 10px 10px;
           border: solid 1px ;
           border-radius: 10px;
           padding: 3px;
           text-align: center;
         }
-        &__lists {
-          margin: 20px;
+        &__lists {//conts-layout__lists
+          position: absolute;
+          top: 20px;
+          left: 130px;
           &__input {
             display: flex;
             .s_name {
@@ -68,31 +73,63 @@
               margin: 4px 2px 0;
             }
           }
-          
-          
-          // month-showで使用
-          .lay_lists {
-            margin: 10px 20px;
-            li {
+        }
+        // month-showで使用
+        .lay_lists {
+          margin: 10px 20px;
+          li {
+            font-size: 20px;
+            margin-bottom: 5px;
+            .fa-ban {
               font-size: 20px;
-              margin-bottom: 5px;
-              .fa-ban {
-                font-size: 20px;
-                color: red;
-              }
+              color: red;
             }
           }
-          // asset-indexで使用
-          .lay-input {
-            font-size: 20px;
-            display: flex;
-              .ld-icon {
-                color: red;
-                margin: 3px 0 0 3px;
-              }
-            
-          }
         }
+        // asset-indexで使用
+        .table-lay-items {
+          font-size: 17px;
+          position: relative;
+          top: 50px;
+          left: 10px;
+          th {
+            padding: 0 5px;
+          }
+          td {
+            padding: 0 5px;
+          }
+          .th-item {
+            padding: 0 5px;
+          }
+          .th-cf {
+            width: 180px;
+          }
+          .th-deposit {
+            width: 180px;
+          }
+          .th-submit {
+            width: 80px;
+          }
+          .lay-item {
+            padding: 0 5px;
+          }
+          .lay-cf {
+            .cf-text {
+              width: 110px;
+            }
+          }
+          .lay-deposit {
+            .deposit-text {
+              width: 110px;
+            }
+          }
+          .ld-icon {
+            color: red;
+            margin: 3px 0 0 3px;
+          }
+          
+        }
+        
         
       }
     }

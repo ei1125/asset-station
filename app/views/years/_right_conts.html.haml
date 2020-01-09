@@ -8,12 +8,15 @@
         %tr
           %th{class:"item"} 項目
           %th 金額
+          %th 頭金
         - @last_assets.each do |asset|
           %tr
             %td 
               ="#{asset.item}"
             %td
               ="#{asset.money}"
+            %td
+              ="#{asset.deposit}"
     .right-conts__list__bottom
       .total
         ="合計:#{total_money(@last_assets)}万円"
@@ -26,12 +29,15 @@
         %tr
           %th{class:"item"} 項目
           %th 金額
+          %th 金利
         - @last_debts.each do |debt|
           %tr
             %td 
               ="#{debt.item}"
             %td
               ="#{debt.money}"
+            %td
+              ="#{debt.rate}"
     .right-conts__list__bottom
       .total
         ="合計:#{total_money(@last_debts)}万円"

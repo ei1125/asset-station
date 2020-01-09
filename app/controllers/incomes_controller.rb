@@ -15,18 +15,31 @@ class IncomesController < ApplicationController
     
   end
   def create
-    income = Income.create(income_params)
-    if income_params[:cf].nil?
-      redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
-    else
-      redirect_to "/years/#{income.year.id}/months/#{income.month.id}/incomes"
-    end
+    @year = Year.find(params[:year_id])
+    @income = Income.new(income_params)
+    @income.save
+      respond_to do |format|
+        format.json
+        format.html {
+          if income_params[:cf].nil?
+            redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
+          else
+            redirect_to "/years/#{income.year.id}/months/#{income.month.id}/incomes"
+          end
+        }
+      end
+    # income = Income.create(income_params)
+    # if income_params[:cf].nil?
+    #   redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
+    # else
+    #   redirect_to "/years/#{income.year.id}/months/#{income.month.id}/incomes"
+    # end
   end
 
   def destroy
     income = Income.find(params[:id])
     income.destroy
-    redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
+    # redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
   end
 
   def update

@@ -22,7 +22,7 @@
               = f.submit "追加する", class: "plus"
               = link_to year_month_assets_path(@year, @month) do
                 %i{class:"fas fa-edit"}
-          %ol{class:"lay_lists"}
+          %ol{class:"lay_lists lay_income"}
             - @incomes.each do |income|
               %li 
                 ="#{income.item}"
@@ -40,7 +40,7 @@
               = f.submit "追加する", class: "plus"
               = link_to year_month_assets_path(@year, @month) do
                 %i{class:"fas fa-edit"}
-          %ol{class:"lay_lists"}
+          %ol{class:"lay_lists lay_expense"}
             - @expenses.each do |expense|
               %li 
                 ="#{expense.item}"
@@ -58,7 +58,7 @@
               = f.submit "追加する", class: "plus"
               = link_to year_month_assets_path(@year, @month) do
                 %i{class:"fas fa-edit"}
-          %ol{class:"lay_lists"}
+          %ol{class:"lay_lists lay_asset" }
             - @assets.each do |asset|
               %li 
                 ="#{asset.item}"
@@ -74,7 +74,7 @@
               = f.submit "追加する", class: "plus"
               = link_to year_month_assets_path(@year, @month) do
                 %i{class:"fas fa-edit"}
-          %ol{class:"lay_lists"}
+          %ol{class:"lay_lists lay_debt"}
             - @debts.each do |debt|
               %li 
                 ="#{debt.item}"
