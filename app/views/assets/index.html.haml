@@ -7,7 +7,7 @@
       ="#{@year.year}年"
       ="#{@month.month}月"
       = link_to "編集", edit_year_month_path(@year, @month)
-
+      = link_to "項目追加", year_month_path(@year, @month)
 -# = render 'main_form', {year: @year, month: @month}
 .year-main
   .year-main-conts
@@ -19,17 +19,15 @@
           %tr
             %th{class:"th-item"} 項目
             %th{class:"th-cf"} キャッシュフロー
-            %th{class:"th-submit"}
-          - @incomes.each do |income|
+          - @incomes.each_with_index do |income, i|
             = form_for([@year, @month, income]) do |f|
-              %tr
+              %tr{class:"lay-line"}
                 %td{class:"lay-item"}
                   ="#{income.item}"
                 %td{class:"lay-cf"}
-                  = f.text_field :cf, placeholder:"金額を入力", class:"cf-text"
+                  = f.text_field :cf, placeholder:"金額を入力", class:"cf-text", id:"income_cf_#{i}"
                   万円
-                %td{class:"lay-submit"}
-                  = f.submit "更新"
+                  = f.submit "更新", class:"lay-submit"
       .conts-layout
         .conts-layout__name
           支出
@@ -37,17 +35,15 @@
           %tr
             %th{class:"th-item"} 項目
             %th{class:"th-cf"} キャッシュフロー
-            %th{class:"th-submit"}
-          - @expenses.each do |expense|
+          - @expenses.each_with_index do |expense, i|
             = form_for([@year, @month, expense]) do |f|
-              %tr
+              %tr{class:"lay-line"}
                 %td{class:"lay-item"}
                   ="#{expense.item}"
                 %td{class:"lay-cf"}
-                  = f.text_field :cf, placeholder:"金額を入力", class:"cf-text"
+                  = f.text_field :cf, placeholder:"金額を入力", class:"cf-text", id:"expence_cf_#{i}"
                   万円
-                %td{class:"lay-submit"}
-                  = f.submit "更新"
+                  = f.submit "更新", class:"lay-submit"
     .main-conts__box
       .conts-layout
         .conts-layout__name
@@ -57,20 +53,18 @@
             %th{class:"th-item"} 項目
             %th{class:"th-cf"} 金額
             %th{class:"th-deposit"}頭金
-            %th{class:"th-submit"}
-          - @assets.each do |asset|
+          - @assets.each_with_index do |asset, i|
             = form_for([@year, @month, asset]) do |f|
-              %tr
+              %tr{class:"lay-line2"}
                 %td{class:"lay-item"}
                   ="#{asset.item}"
                 %td{class:"lay-cf"}
-                  = f.text_field :money, placeholder:"金額を入力", class:"cf-text"
+                  = f.text_field :money, placeholder:"金額を入力", class:"cf-text", id:"asset_money_#{i}"
                   万円
                 %td{class:"lay-deposit"}
-                  = f.text_field :deposit, placeholder:"頭金を入力", class:"deposit-text"
+                  = f.text_field :deposit, placeholder:"頭金を入力", class:"deposit-text", id:"asset_deposit_#{i}"
                   万円
-                %td{class:"lay-submit"}
-                  = f.submit "更新"
+                  = f.submit "更新", class:"lay-submit2"
       .conts-layout
         .conts-layout__name
           負債
@@ -79,18 +73,16 @@
           %tr
             %th{class:"th-item"} 項目
             %th{class:"th-cf"} 金額
-            %th{class:"th-rate"} 金利
-            %th{class:"th-submit"}
-          - @debts.each do |debt|
+            %th{class:"th-deposit"} 金利
+          - @debts.each_with_index do |debt, i|
             = form_for([@year, @month, debt]) do |f|
-              %tr
+              %tr{class:"lay-line2"}
                 %td{class:"lay-item"}
                   ="#{debt.item}"
                 %td{class:"lay-cf"}
-                  = f.text_field :money, placeholder:"金額を入力", class:"cf-text"
+                  = f.text_field :money, placeholder:"金額を入力", class:"cf-text", id:"debt_money_#{i}"
                   万円
                 %td{class:"lay-deposit"}
-                  = f.text_field :rate, placeholder:"金利を入力", class:"deposit-text"
+                  = f.text_field :rate, placeholder:"金利を入力", class:"deposit-text", id:"debt_rate_#{i}"
                   ％
-                %td{class:"lay-submit"}
-                  = f.submit "更新"
+                  = f.submit "更新", class:"lay-submit2"

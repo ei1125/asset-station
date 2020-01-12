@@ -17,17 +17,12 @@
           .cf
             CF:
         - @months.where(year_id: years.id).each do |months|
-          .result
-            .month
-              ="#{months.month}月"
-              .m-icon
-                = link_to year_month_path(years.id, months.id), class: "m-icon" do
-                  %i{class:"fas fa-cog"}
-                = link_to year_month_path(years.id, months.id), method: :delete, class: "m-icon" do
-                  %i{class:"fas fa-trash-alt"}
-                = link_to "cf入力", year_month_incomes_path(years.id, months.id)
-            .cf
-              ="月のCF:#{profit_cf(months)}万円"
+          = link_to year_month_incomes_path(years.id, months.id), class: "m-area" do
+            .result
+              .month
+                ="#{months.month}月"
+              .cf
+                ="月のCF:#{profit_cf(months)}万円"
         
       .sub-conts__list__right
         .total

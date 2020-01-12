@@ -16,19 +16,17 @@
               %td 
                 ="#{income.item}"
               %td
-                = form_for([@year, @month, income]) do |f|
-                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
-                  万円
-                  = f.submit "更新"
+                ="#{income.cf}"
+                万円
       .left-conts__list__r-side
         .when
-          ="#{@year.year}年#{@month.month}月"
+          = "#{@year.year}年#{@month.month}月"
         .edit
-          <input type="month" class="r-search">
           .edit__btn
-            <input type="button" value="検索">
             = link_to year_month_path(@year, @month), class: "m-icon" do
               %i{class:"fas fa-cog"}
+            = link_to year_month_path(@year, @month), method: :delete, class: "m-icon" do
+              %i{class:"fas fa-trash-alt"}
 
         .total
           ="総収入:#{total_cf(@incomes)}万円"
@@ -46,10 +44,8 @@
               %td 
                 ="#{expense.item}"
               %td
-                = form_for([@year, @month, expense]) do |f|
-                  = f.text_field :cf, placeholder:"隣のボタンで更新", class:"cf-text"
-                  万円
-                  = f.submit "更新"
+                ="#{expense.cf}"
+                万円
       .left-conts__list__r-side
         .total
           %ul

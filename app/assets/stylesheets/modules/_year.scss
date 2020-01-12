@@ -102,10 +102,10 @@
             padding: 0 5px;
           }
           .th-cf {
-            width: 180px;
+            width: 200px;
           }
           .th-deposit {
-            width: 180px;
+            width: 200px;
           }
           .th-submit {
             width: 80px;
@@ -114,15 +114,35 @@
             padding: 0 5px;
           }
           .lay-cf {
+            display: flex;
             .cf-text {
               width: 110px;
             }
           }
           .lay-deposit {
+            position: relative;
             .deposit-text {
               width: 110px;
             }
+            .lay-submit2 {
+              display: none;
+            }
+            .lay-submit2.active {
+              display: block;
+              margin: 5px 0 0 3px;
+              position: absolute;
+              top: 0px;
+              right: 2px;
+            }
           }
+          .lay-submit {
+            display: none;
+          }
+          .lay-submit.active {
+            display: block;
+            margin: 5px 0 0 3px;
+          }
+          
           .ld-icon {
             color: red;
             margin: 3px 0 0 3px;

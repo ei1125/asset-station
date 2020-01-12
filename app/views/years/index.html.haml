@@ -14,10 +14,7 @@
             %th キャッシュフロー
           
       .left-conts__list__r-side
-        .when
-          <input type="month"> 
         .edit
-          <input type="button" value="検索">
         .total
           総収入: 万円
     .left-conts__list
@@ -31,9 +28,12 @@
             %th キャッシュフロー
             
       .left-conts__list__r-side
-        
         .total
-          総収入: 万円
+          %ul
+            %li
+              総支出:万円
+            %li
+              月のCF:万円
 
   = render 'years/right_conts'
 

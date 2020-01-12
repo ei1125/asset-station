@@ -88,8 +88,8 @@
     background-color: $main_conts;
     width: 50vw;
     height: 100%;
-    border: solid 1px ;/*線*/
-    border-radius: 10px;/*角の丸み*/
+    border: solid 1px ;
+    border-radius: 10px;
     padding: 5px 5px;
     &__list {
       width: 100%;
@@ -102,14 +102,14 @@
           line-height: 30px;
           text-align: center;
           padding: 1px 2px;
-          border: solid 1px ;/*線*/
-          border-radius: 10px;/*角の丸み*/
+          border: solid 1px ;
+          border-radius: 10px;
         }
       }
       &__items {
         width: calc(60% - 40px);
-        border: solid 1px ;/*線*/
-        border-radius: 10px;/*角の丸み*/
+        border: solid 1px ;
+        border-radius: 10px;
         padding: 10px;
         margin: 3px;
         overflow-y: scroll;
@@ -122,7 +122,9 @@
              width: 150px;
            }
          }
-        
+      }
+      &__items:hover {
+        border: solid 2px;
       }
       &__r-side {
         width: calc(40% - 40px);
@@ -134,13 +136,14 @@
         overflow-y: scroll;
         .when {
           display: flex;
-          
+          font-size: 20px;
+          border: solid 1px ;
+          border-radius: 10px;
+          padding: 4px;
+          width: 130px;
+          justify-content: center;
         }
         .edit {
-          
-          .r-search {
-            width: 130px;
-          }
           &__btn {
             display: flex;
             margin: 3px 0;
@@ -148,6 +151,11 @@
               font-size: 20px;
               color: grey;
               margin: 0 5px;
+            }
+            .fa-trash-alt {
+              font-size:20px;
+              color: grey;
+              margin-left: 0 5px;
             }
           }
         }
@@ -158,9 +166,14 @@
           right: 0px;
         }
       }
+      &__r-side:hover {
+        border: solid 2px;
+      }
     }
   }
-
+  .left-conts:hover {
+    border: solid 2px;
+  }
 
   .right-conts {
     background-color: $main_conts;
@@ -203,6 +216,12 @@
         font-size: 20px;
       }
     }
+    &__list:hover {
+      border: solid 2px;
+    }
+  }
+  .right-conts:hover {
+    border: solid 2px ;
   }
 }
 
@@ -236,24 +255,20 @@
       .index {
         padding: 3px 3px;
       }
-      .result {
-        border: solid 1px ;
-        border-radius: 10px;
-        padding: 3px 3px;
-        .month {
-          display: flex;
-          .m-icon{
-            margin: 2px 0 0 2px;
-            display: flex;
-            text-decoration: none;
-            .fa-cog {
-              color: grey;
-            }
-            .fa-trash-alt {
-              color: grey;
-              margin-left: 2px;
-            }
-          }
+      .m-area {
+        text-decoration: none;
+        color: black;
+        .result {
+          border: solid 1px ;
+          border-radius: 10px;
+          padding: 3px 3px;
+        }
+        .result:hover {
+          color: white;
+          background-color: #807e7e;
+          border: solid 1px ;
+          border-radius: 10px;
+          padding: 3px 3px;
         }
       }
     }
@@ -265,5 +280,8 @@
         bottom: 0;
       }
     }
+  }
+  &__list:hover {
+    border: solid 2px ;
   }
 }

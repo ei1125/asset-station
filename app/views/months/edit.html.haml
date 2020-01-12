@@ -5,6 +5,8 @@
     .year-header__left__input
       ="#{@year.year}年"
       ="#{@month.month}月"
+      = link_to "項目追加", year_month_path(@year, @month)
+      = link_to "金額を入力", year_month_assets_path(@year, @month)
 
 -# = render 'main_form', {year: @year, month: @month}
 .year-main
@@ -20,9 +22,6 @@
                 = form_for([@year, @month, income]) do |f|
                   = f.text_field :item
                   = f.submit "編集の更新"
-                  -# = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "i-icon" do
-                  -#   %i{class:"fas fa-ban"}
-                
       .conts-layout
         .conts-layout__name
           支出
