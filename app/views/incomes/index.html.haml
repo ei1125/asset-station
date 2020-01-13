@@ -10,7 +10,7 @@
         %table{border:"1",class:"table-items"}
           %tr
             %th{class:"item"} 項目
-            %th キャッシュフロー
+            %th{class:"cf-text"} キャッシュフロー
           - @incomes.each do |income|
             %tr
               %td 
@@ -38,7 +38,7 @@
         %table{border:"1",class:"table-items"}
           %tr
             %th{class:"item"} 項目
-            %th キャッシュフロー
+            %th{class:"cf-text"} キャッシュフロー
           - @expenses.each do |expense|
             %tr
               %td 

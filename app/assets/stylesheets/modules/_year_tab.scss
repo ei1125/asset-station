@@ -7,10 +7,10 @@
   &__left {
     margin: 10px 10px 0;
     &__logo {
-      font-size: 35px;
+      font-size: 20px;
     }
     &__input {
-      font-size: 25px;
+      font-size: 20px;
       .y-num {
         width: 90px;
       }
@@ -25,7 +25,6 @@
   width: 100vw;
   height: 85vh;
   background-color: $main_conts;
-  display: flex;
   .year-main-conts {
     width: 100vw;
     height: 100%;
@@ -33,23 +32,26 @@
       width: 100%;
       height: 50%;
       display: flex;
+      flex-direction: column;
       .conts-layout {
-        width: 50%;
+        width: 95%;
+        height: 50%;
         border: solid 1px ;
         border-radius: 10px;
-        margin: 10px;
+        margin: 5px 10px;
         padding: 3px;
         display: flex;
         background-color: $main_block;
         position: relative;
+        overflow-y: scroll;
         &__name {
           position: absolute;
-          top: 10px;
+          top: 5px;
           left: 10px;
-          font-size: 30px;
-          line-height: 30px;
-          width: 90px;
-          height: 36px;
+          font-size: 20px;
+          line-height: 20px;
+          width: 70px;
+          height: 28px;
           border: solid 1px ;
           border-radius: 10px;
           padding: 3px;
@@ -57,8 +59,8 @@
         }
         &__lists {//conts-layout__lists
           position: absolute;
-          top: 20px;
-          left: 130px;
+          top: 5px;
+          left: 100px;
           &__input {
             display: flex;
             .s_name {
@@ -76,12 +78,12 @@
         }
         // month-showで使用
         .lay_lists {
-          margin: 10px 20px;
+          margin: 5px 20px;
           li {
-            font-size: 20px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 2px;
             .fa-ban {
-              font-size: 20px;
+              font-size: 15px;
               color: red;
             }
           }

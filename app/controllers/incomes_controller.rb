@@ -5,13 +5,17 @@ class IncomesController < ApplicationController
     @month = Month.find(params[:month_id])
     @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
     @months = Month.where(user_id: current_user.id).includes(:user).order("month ASC")
-    @incomes = @month.incomes.includes(:user)
-    @expenses = @month.expenses.includes(:user)
+    @incomes = @month.incomes.includes(:user).order("item DESC")
+    @expenses = @month.expenses.includes(:user).order("item DESC")
     
     @last_month_assets = Month.includes(:user).where(user_id: current_user.id).joins(:assets,:year).order("year DESC","month DESC").first
-    @last_assets = @last_month_assets.assets
+    if @last_month_assets.present?
+      @last_assets = @last_month_assets.assets
+    end
     @last_month_debts = Month.includes(:user).where(user_id: current_user.id).joins(:debts,:year).order("year DESC","month DESC").first
-    @last_debts = @last_month_debts.debts
+    if @last_month_debts.present?
+      @last_debts = @last_month_debts.debts
+    end
     
   end
   def create

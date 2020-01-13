@@ -19,7 +19,6 @@
           - if user_signed_in?
             = link_to new_year_path do
               %i{class:"fas fa-cog fa-2x"}
-              -# = icon('fas', 'cog', class: 'icon')
   .right-menu
     - if user_signed_in?
       .right-menu__list
@@ -35,6 +34,7 @@
         .right-menu__list__btn
           = link_to new_user_registration_path do
             <input type="button" class="btn1" value="新規登録">
+          -# = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
       .right-menu__list
         .right-menu__list__btn
           = link_to new_user_session_path do

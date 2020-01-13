@@ -4,13 +4,13 @@ class MonthsController < ApplicationController
     @year = Year.find(params[:year_id])
     @month = Month.find(params[:id])
     @income = Income.new
-    @incomes = @month.incomes.includes(:user)
+    @incomes = @month.incomes.includes(:user).order("item DESC")
     @expense = Expense.new
-    @expenses = @month.expenses.includes(:user)
+    @expenses = @month.expenses.includes(:user).order("item DESC")
     @asset = Asset.new
-    @assets = @month.assets.includes(:user)
+    @assets = @month.assets.includes(:user).order("item DESC")
     @debt = Debt.new
-    @debts = @month.debts.includes(:user)
+    @debts = @month.debts.includes(:user).order("item DESC")
   end
 
   def new #月を入力ページ：３
@@ -22,13 +22,13 @@ class MonthsController < ApplicationController
     @year = Year.find(params[:year_id])
     @month = Month.find(params[:id])
     @income = Income.new
-    @incomes = @month.incomes.includes(:user)
+    @incomes = @month.incomes.includes(:user).order("item DESC")
     @expense = Expense.new
-    @expenses = @month.expenses.includes(:user)
+    @expenses = @month.expenses.includes(:user).order("item DESC")
     @asset = Asset.new
-    @assets = @month.assets.includes(:user)
+    @assets = @month.assets.includes(:user).order("item DESC")
     @debt = Debt.new
-    @debts = @month.debts.includes(:user)
+    @debts = @month.debts.includes(:user).order("item DESC")
   end
   
   def create
