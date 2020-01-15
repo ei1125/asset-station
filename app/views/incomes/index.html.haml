@@ -7,7 +7,7 @@
         .left-conts__list__title__name
           収入
       .left-conts__list__items
-        %table{border:"1",class:"table-items"}
+        %table{border:"1",class:"table-items",id:"income-table"}
           %tr
             %th{class:"item"} 項目
             %th{class:"cf-text"} キャッシュフロー
@@ -28,14 +28,14 @@
             = link_to year_month_path(@year, @month), method: :delete, class: "m-icon" do
               %i{class:"fas fa-trash-alt"}
 
-        .total
+        .total{id:"total_income"}
           ="総収入:#{total_cf(@incomes)}万円"
     .left-conts__list
       .left-conts__list__title
         .left-conts__list__title__name
           支出
       .left-conts__list__items
-        %table{border:"1",class:"table-items"}
+        %table{border:"1",class:"table-items",id:"expense-table"}
           %tr
             %th{class:"item"} 項目
             %th{class:"cf-text"} キャッシュフロー
@@ -47,7 +47,7 @@
                 ="#{expense.cf}"
                 万円
       .left-conts__list__r-side
-        .total
+        .total{id:"total_expense"}
           %ul
             %li
               ="総支出:#{total_cf(@expenses)}万円"

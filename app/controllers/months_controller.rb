@@ -37,7 +37,9 @@ class MonthsController < ApplicationController
     if @month.save
       redirect_to year_month_path(@year, @month)
     else
-      redirect_to root_path
+      @year = Year.find(params[:year_id])
+      @month = Month.new
+      render action: :new
     end
   end
 

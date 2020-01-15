@@ -4,7 +4,7 @@
       = link_to "ASSET STATION", years_path, class: "asset-logo"
     .year-header__left__input
       = form_for([@year], html: {class: "ym_input"}) do |f|
-        = f.number_field :year, class: "y-num"
+        = f.number_field :year, placeholder: "年を入力",class: "y-num"
         年
-        = f.submit "表示する"
+        = f.submit "次へ"
 = render 'main_demoform'

@@ -1,6 +1,8 @@
 class Year < ApplicationRecord
   #同じユーザーで同じ数字は入力されない
   validates :year, uniqueness: { scope: :user_id}
+  validates :year, presence: true
+  validates :year, numericality: { greater_than_or_equal_to: 1 }
 
   has_many :months, dependent: :destroy
   belongs_to :user

@@ -129,7 +129,7 @@
         }
       }
       &__items {
-        width: calc(60% - 54px);
+        width: calc(55% - 54px);
         border: solid 1px ;
         border-radius: 10px;
         padding: 10px;
@@ -150,11 +150,11 @@
         border: solid 2px;
       }
       &__r-side {
-        width: calc(40% - 40px);
+        width: calc(45% - 40px);
         position: relative;
         border: solid 1px ;/*線*/
         border-radius: 10px;/*角の丸み*/
-        padding: 10px;
+        padding: 3px;
         margin: 3px;
         overflow-y: scroll;
         .when {
@@ -162,7 +162,8 @@
           font-size: 20px;
           border: solid 1px ;
           border-radius: 10px;
-          padding: 4px;
+          padding: 1px 2px;
+          margin-bottom: 10px;
           width: 130px;
           justify-content: center;
         }

@@ -18,7 +18,8 @@
           .cf
             CF:
         - @months.where(year_id: years.id).each do |months|
-          = link_to year_month_incomes_path(years.id, months.id), class: "m-area" do
+          -# = link_to year_month_incomes_path(years.id, months.id), class: "m-area" do
+          = link_to year_month_api_inexes_path(years.id, months.id), class: "m-area" do
             .result
               .month
                 ="#{months.month}月"

@@ -22,6 +22,34 @@ module IncomesHelper
     end
     return total
   end
+
+  def each_income_text(incomes)
+    html = ""
+    incomes.each do |income|
+      html += "<tr>
+                <td>#{income.item}</td>
+                <td>#{income.cf}万円</td>
+              </tr>"
+    end
+    return html
+  end
+
+  # def each_income_text(incomes)
+  #   html = 0
+  #   html = "<tr>
+  #             <td>#{incomes.item}</td>
+  #             <td>#{incomes.cf}万円</td>
+  #           </tr>"
+  #   html += "<tr>
+  #             <td>#{incomes.item}</td>
+  #             <td>#{incomes.cf}万円</td>
+  #           </tr>"
+  #   html += "<tr>
+  #             <td>#{incomes.item}</td>
+  #             <td>#{incomes.cf}万円</td>
+  #           </tr>"
+  #   return html
+  # end
   
 
 end

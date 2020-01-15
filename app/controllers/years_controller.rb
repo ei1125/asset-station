@@ -24,16 +24,6 @@ class YearsController < ApplicationController
   def chart #年単位のグラフ
     @years = Year.where(user_id: current_user.id).includes(:user)
    
-    # def year_array(years)
-    #   array = []
-    #   years.each do |year|
-    #     total_cf = year.incomes.sum(:cf) - year.expenses.sum(:cf)
-    #     array << [ year.year, total_cf ]
-    #   end
-    #   return array
-    # end
-    # @years_cf = year_array(@years)
-
   end
 
   def new
@@ -45,7 +35,8 @@ class YearsController < ApplicationController
     if @year.save
       redirect_to new_year_month_path(@year)
     else
-      redirect_to root_path
+      @year = Year.new
+      render action: :new
     end
   end
 

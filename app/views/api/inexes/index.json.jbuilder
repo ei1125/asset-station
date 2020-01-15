@@ -1,0 +1,9 @@
+json.incomes each_income_text(@incomes)
+json.expenses each_income_text(@expenses)
+json.year @year.year
+json.month @month.month
+json.year_id @year.id
+json.month_id @month.id
+json.total_income total_cf(@incomes)
+json.total_expense total_cf(@expenses)
+json.month_cf profit_cf(@month)
