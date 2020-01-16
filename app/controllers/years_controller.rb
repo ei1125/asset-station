@@ -33,9 +33,10 @@ class YearsController < ApplicationController
   def create
     @year = Year.new(year_params)
     if @year.save
-      redirect_to new_year_month_path(@year)
+      redirect_to new_year_month_path(@year), notice: "#{@year.year}年を作成しました"
     else
       @year = Year.new
+      flash.now[:alert] = "その年はすでに登録済みか値が不適切です"
       render action: :new
     end
   end

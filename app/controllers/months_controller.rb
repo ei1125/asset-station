@@ -35,10 +35,11 @@ class MonthsController < ApplicationController
     @year = Year.find(params[:year_id])
     @month = Month.new(month_params)
     if @month.save
-      redirect_to year_month_path(@year, @month)
+      redirect_to year_month_path(@year, @month), notice: "#{@month.month}月を作成しました"
     else
       @year = Year.find(params[:year_id])
       @month = Month.new
+      flash.now[:alert] = "その月はすでに登録済みか値が不適切です"
       render action: :new
     end
   end

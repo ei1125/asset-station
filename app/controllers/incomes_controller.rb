@@ -32,12 +32,6 @@ class IncomesController < ApplicationController
           end
         }
       end
-    # income = Income.create(income_params)
-    # if income_params[:cf].nil?
-    #   redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
-    # else
-    #   redirect_to "/years/#{income.year.id}/months/#{income.month.id}/incomes"
-    # end
   end
 
   def destroy
