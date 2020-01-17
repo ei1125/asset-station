@@ -8,13 +8,27 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
 
-jobs: 
-  build: 
-    docker: 
-      - image: circleci/ruby:2.5.1-stretch-node
+jobs:
+  one:
+    docker:
+      - image: circleci/ruby:2.4.1
     steps:
       - checkout
       - run: echo "A first hello"
+      - run: sleep 25
+  two:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "A more familiar hi"
+      - run: sleep 15
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
