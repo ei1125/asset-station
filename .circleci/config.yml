@@ -12,12 +12,9 @@ jobs:
   build: 
     docker: 
       - image: circleci/ruby:2.5.1-stretch-node
-    steps: 
+    steps:
       - checkout
-      - run: 
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - run: echo "A first hello"
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
