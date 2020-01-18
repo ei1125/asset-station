@@ -23,6 +23,28 @@ describe YearsController do
     end
   end
 
+  # describe 'GET #index' do
+  
+  #   context 'log in' do
+  #     before do
+  #       login user
+  #     end
+
+      # it "populates an array of years ordered by year DESC" do
+      #   years = create_list(:year, 3)
+      #   get :index
+      #   expect(assigns(:years)).to match(years.year.sort.reverse)
+      # end
+  
+      # it "renders the :index template" do
+      #   get :index
+      #   expect(response).to render_template :index
+      # end
+  #   end
+  # end
+
+  
+
 end
 
 # bundle exec rspec spec/controllers/years_controller_spec.rb

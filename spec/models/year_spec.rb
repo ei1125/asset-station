@@ -4,7 +4,7 @@ describe Year do
   describe '#create' do
 
     # 1, yearが存在すれば登録出来る
-    it "is invalid without a year" do
+    it "is valid with a year" do
       year = build(:year)
       expect(year).to be_valid
     end

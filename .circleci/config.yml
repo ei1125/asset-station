@@ -15,20 +15,6 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
-      - run: sleep 25
-  two:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"
-      - run: sleep 15
-workflows:
-  version: 2
-  one_and_two:
-    jobs:
-      - one
-      - two
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
