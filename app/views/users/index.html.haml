@@ -1,4 +1,48 @@
-= render 'years/header'
+.header
+  .header-left
+    .title
+      .title__left
+        .title__left__logo{class: "asset-logo"}
+          ASSET STATION
+        .title__left__name
+          .title__left__name__font
+            - if user_signed_in?
+              = current_user.name
+            - else
+              non user
+      .title__set
+        .title__set__chart
+          
+        .title__set__name
+          
+        .title__set__icon
+          - if user_signed_in?
+            = link_to new_year_path do
+              %i{class:"fas fa-cog fa-2x"}
+  .right-menu
+    - if user_signed_in?
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to edit_user_path(current_user) do
+            <input type="button" class="btn1" value="登録編集">
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to destroy_user_session_path, method: :delete do
+            <input type="button" class="btn1" value="ログアウト">
+    - else
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to new_user_registration_path do
+            <input type="button" class="btn1" value="新規登録">
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to users_guest_sign_in_path, method: :post do
+            <input type="button" class="btn1" value="ゲストログイン">
+          
+      .right-menu__list
+        .right-menu__list__btn
+          = link_to new_user_session_path do
+            <input type="button" class="btn1" value="ログイン">
 
 .main-conts
   .left-conts
