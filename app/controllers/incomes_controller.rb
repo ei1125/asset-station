@@ -18,6 +18,7 @@ class IncomesController < ApplicationController
     end
     
   end
+
   def create
     @year = Year.find(params[:year_id])
     @income = Income.new(income_params)
