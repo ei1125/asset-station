@@ -20,11 +20,7 @@ class AssetsController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          if income_params[:cf].nil?
-            redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
-          else
-            redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
-          end
+          redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
         }
       end
 

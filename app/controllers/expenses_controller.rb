@@ -7,11 +7,7 @@ class ExpensesController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          if expense_params[:cf].nil?
-            redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
-          else
-            redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/incomes"
-          end
+          redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
         }
       end
 

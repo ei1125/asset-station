@@ -26,11 +26,7 @@ class IncomesController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          if income_params[:cf].nil?
-            redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
-          else
-            redirect_to "/years/#{income.year.id}/months/#{income.month.id}/incomes"
-          end
+          redirect_to "/years/#{@income.year.id}/months/#{@income.month.id}"
         }
       end
   end

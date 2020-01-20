@@ -46,6 +46,23 @@ $(function(){
 
   $('#new_income').on('submit', function(e){  //項目の追加
     e.preventDefault();
+
+    $('#new_income').validate({
+      rules: {
+        "income[item]": {
+          required: true
+        }
+      },
+      messages: {
+				"income[item]":{
+            required: "空欄です"
+         }
+      }
+    });
+    if (!$('#new_income').valid()) {
+      return false;
+    }
+
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -60,11 +77,32 @@ $(function(){
       $('.lay_income').append(html);      
       $('#new_income')[0].reset();
       $('.plus').prop('disabled', false);
-      })
+      }).fail(function() {
+        alert("追加に失敗しました");
+        $('#new_income')[0].reset();
+        $('.plus').prop('disabled', false);
+      });
   });
 
   $('#new_expense').on('submit', function(e){  //項目の追加
     e.preventDefault();
+
+    $('#new_expense').validate({
+      rules: {
+        "expense[item]": {
+          required: true
+        }
+      },
+      messages: {
+				"expense[item]":{
+            required: "空欄です"
+         }
+      }
+    });
+    if (!$('#new_expense').valid()) {
+      return false;
+    }
+
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -79,11 +117,30 @@ $(function(){
       $('.lay_expense').append(html);      
       $('#new_expense')[0].reset();
       $('.plus').prop('disabled', false);
-      })
+      }).fail(function() {
+        alert("追加に失敗しました");
+      });
   });
 
   $('#new_asset').on('submit', function(e){  //項目の追加
     e.preventDefault();
+
+    $('#new_asset').validate({
+      rules: {
+        "asset[item]": {
+          required: true
+        }
+      },
+      messages: {
+				"asset[item]":{
+            required: "空欄です"
+         }
+      }
+    });
+    if (!$('#new_asset').valid()) {
+      return false;
+    }
+
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -103,6 +160,23 @@ $(function(){
 
   $('#new_debt').on('submit', function(e){  //項目の追加
     e.preventDefault();
+
+    $('#new_debt').validate({
+      rules: {
+        "debt[item]": {
+          required: true
+        }
+      },
+      messages: {
+				"debt[item]":{
+            required: "空欄です"
+         }
+      }
+    });
+    if (!$('#new_debt').valid()) {
+      return false;
+    }
+
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({

@@ -7,11 +7,7 @@ class DebtsController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          if debt_params[:cf].nil?
-            redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}"
-          else
-            redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}/incomes"
-          end
+          redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}"
         }
       end
 

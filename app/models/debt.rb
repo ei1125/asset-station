@@ -1,5 +1,5 @@
 class Debt < ApplicationRecord
-  validates :item, uniqueness: { scope: [:user_id, :month_id]}
+  # validates :item, uniqueness: { scope: [:user_id, :month_id]}
   validates :item, presence: true
 
   belongs_to :user
