@@ -23,9 +23,11 @@
           &__logo {
             font-size: 35px;
             margin-bottom: 6px;
-          }
-          &__logo:hover {
-            font-size: 36px;
+            &__link:hover {
+              color: white;
+              text-decoration: none;
+              background-color: grey;
+            }
           }
           &__name {
             display: flex;
@@ -36,7 +38,7 @@
             }
           }
         }
-        &__set {
+        &__list {
           width: 300px;
           height: 40px;
           padding: 4px 5px 0 0;
@@ -44,29 +46,22 @@
           bottom: 20px;
           right: 0px;
           display: flex;
-          &__chart {
-            font-size: 20px;
+          font-size: 20px;
+          // background-color: grey;
+          &__items {
             margin-right: 10px;
+            &__input {
+              // color: black;
+              // text-decoration: none;
+            }
+            &__input:hover {
+              color: white;
+              text-decoration: none;
+              background-color: grey;
+            }
           }
-          &__chart:hover {
-            font-size: 22px;
-            margin-right: 0px;
-          }
-          &__name {
+          &__help {
             font-size: 20px;
-          }
-          &__icon {
-            margin: 0 0 15px 10px;
-            .fa-cog {
-              color: black;
-            }
-            .fa-cog:hover {
-              color: rgb(90, 89, 89);
-              font-size: 35px;
-            }
-            .fa-cog:active {
-              color: rgb(216, 214, 214);
-            }
           }
         }
 
@@ -127,6 +122,10 @@
           border: solid 1px ;
           border-radius: 10px;
         }
+        &__help {
+          font-size: 20px;
+          margin-left: 55px;
+        }
       }
       &__items {
         width: calc(55% - 54px);
@@ -152,8 +151,8 @@
       &__r-side {
         width: calc(45% - 40px);
         position: relative;
-        border: solid 1px ;/*線*/
-        border-radius: 10px;/*角の丸み*/
+        border: solid 1px ;
+        border-radius: 10px;
         padding: 3px;
         margin: 3px;
         overflow-y: scroll;
@@ -171,6 +170,7 @@
           &__btn {
             display: flex;
             margin: 3px 0;
+            font-size: 20px;
             .fa-cog {
               font-size: 20px;
               color: grey;
@@ -214,6 +214,7 @@
       border-radius: 10px;
       position: relative;
       &__title {
+        display: flex;
         &__name {
           width: 100px;
           font-size: 30px;
@@ -222,6 +223,10 @@
           padding: 1px 2px;
           border: solid 1px ;
           border-radius: 10px;
+        }
+        &__help {
+          font-size: 20px;
+          margin-left: 5px;
         }
       }
       &__items {
@@ -262,6 +267,10 @@
     display: flex;
     &__title {
       width: 100px;
+      &__help {
+        font-size: 20px;
+        margin-left: 40px;
+      }
       &__set {
         display:flex;
         .fa-cog {

@@ -6,13 +6,13 @@
 @import "modules/user";
 @import "modules/year";
 @import "modules/js";
+@import "modules/popup_help";
 // @import "modules/top";
 
-// #PC用のcss
-@media screen and (min-width: 767px) {
-  @import "modules/year";
-  @import "modules/top";
-}
+// // #スマホ用のcss
+// @media screen and (max-width: 479px) {
+//   @import "modules/top_sma";
+// }
 
 // #タブレット用のcss
 @media screen and (max-width: 767px){
@@ -20,7 +20,8 @@
   @import "modules/top_tab";
 }
 
-// // #スマホ用のcss
-// @media screen and (max-width: 479px) {
-//   @import "modules/top_sma";
-// }
+// #PC用のcss
+@media screen and (min-width: 767px) {
+  @import "modules/year";
+  @import "modules/top";
+}

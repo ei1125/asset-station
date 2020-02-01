@@ -1,48 +1,4 @@
-.header
-  .header-left
-    .title
-      .title__left
-        .title__left__logo{class: "asset-logo"}
-          ASSET STATION
-        .title__left__name
-          .title__left__name__font
-            - if user_signed_in?
-              = current_user.name
-            - else
-              non user
-      .title__set
-        .title__set__chart
-          
-        .title__set__name
-          
-        .title__set__icon
-          - if user_signed_in?
-            = link_to new_year_path do
-              %i{class:"fas fa-cog fa-2x"}
-  .right-menu
-    - if user_signed_in?
-      .right-menu__list
-        .right-menu__list__btn
-          = link_to edit_user_path(current_user) do
-            <input type="button" class="btn1" value="登録編集">
-      .right-menu__list
-        .right-menu__list__btn
-          = link_to destroy_user_session_path, method: :delete do
-            <input type="button" class="btn1" value="ログアウト">
-    - else
-      .right-menu__list
-        .right-menu__list__btn
-          = link_to new_user_registration_path do
-            <input type="button" class="btn1" value="新規登録">
-      .right-menu__list
-        .right-menu__list__btn
-          = link_to users_guest_sign_in_path, method: :post do
-            <input type="button" class="btn1" value="ゲストログイン">
-          
-      .right-menu__list
-        .right-menu__list__btn
-          = link_to new_user_session_path do
-            <input type="button" class="btn1" value="ログイン">
+= render 'years/header'
 
 .main-conts
   .left-conts
@@ -50,6 +6,12 @@
       .left-conts__list__title
         .left-conts__list__title__name
           収入
+        .left-conts__list__title__help
+          <span class="popup_help" data-message="
+          指定した月の収入が表示されます。
+          給料、配当金、不動産、ビジネスなどの月々で固定の収入項目を
+          設定出来ます！月のデータを表示したい時は下の表をクリックします。
+          ">?</span>
       .left-conts__list__items
         %table{border:"1",class:"table-items"}
           %tr
@@ -72,6 +34,13 @@
       .left-conts__list__title
         .left-conts__list__title__name
           支出
+        .left-conts__list__title__help
+          <span class="popup_help" data-message="
+          指定した月の支出が表示されます。
+          自動車ローン、税金、月払いのサブスクリプションなどの
+          月々で固定の支出項目を自分で設定出来ます！
+          月のデータを表示したい時は下の表をクリックします。
+          ">?</span>
       .left-conts__list__items
         %table{border:"1",class:"table-items"}
           %tr
@@ -98,13 +67,19 @@
       .right-conts__list__title
         .right-conts__list__title__name
           資産
+        .right-conts__list__title__help
+          <span class="popup_help" data-message="
+          ここでは入力した最新の資産データが表示されます。
+          資産とは所持していることで利益を生み出すものです。
+          例）預金、有価証券、不動産など
+          ">?</span>
       .right-conts__list__items
         %table{border:"1",class:"table-items"}
           %tr
             %th{class:"item"} 項目
             %th キャッシュフロー
           %tr
-            %td 貯蓄
+            %td 預金
             %td 万円
           %tr
             %td 株
@@ -119,6 +94,12 @@
       .right-conts__list__title
         .right-conts__list__title__name
           負債
+        .right-conts__list__title__help
+          <span class="popup_help" data-message="
+          ここでは入力した最新の負債データが表示されます。
+          負債は基本的に利息などが発生する借金のことです。
+          例）住宅ローン、自動車ローン、銀行ローン、奨学金など
+          ">?</span>
       .right-conts__list__items
         %table{border:"1",class:"table-items"}
           %tr
@@ -143,12 +124,29 @@
     .sub-conts__list__title
       .sub-conts__list__title__year
         2020年
+      .sub-conts__list__title__help
+        <span class="popup_help" data-message="
+        ログイン後、右に出ている月の項目をクリックするとその月のデータが表示されます。
+        グラフのアイコンが出てくるのでクリックをすると１年間のグラフデータが表示されます。
+        ">?</span>
     .sub-conts__list__items
       .index
         .month
           月:
         .cf
           CF:
+      .m-area
+        .result
+          .month
+            １月
+          .cf
+            月のCF:X万円
+      .m-area
+        .result
+          .month
+            2月
+          .cf
+            月のCF:X万円
     .sub-conts__list__right
       .total
         合計CF：万円
@@ -163,6 +161,7 @@
           月:
         .cf
           CF:
+      
     .sub-conts__list__right
       .total
         合計CF：万円

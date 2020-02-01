@@ -1,24 +1,39 @@
 .header
   .header-left
-    .title
-      .title__left
-        .title__left__logo
-          = link_to "ASSET STATION", years_path, class: "asset-logo"
-        .title__left__name
-          .title__left__name__font
-            - if user_signed_in?
+    - if user_signed_in?
+      .title
+        .title__left
+          .title__left__logo
+            = link_to "ASSET STATION", years_path, class: "title__left__logo__link"
+          .title__left__name
+            .title__left__name__font
               = current_user.name
-            - else
+        %ul{class:"title__list"}
+          %li{class:"title__list__items"}
+            = link_to "入力を始める",new_year_path,class: "title__list__items__input"
+          %li{class:"title__list__items"}
+            = link_to "グラフを表示",chart_years_path,class: "title__list__items__input"
+          %li{class:"title__list__help"}
+            <span class="popup_help" data-message="
+            ここでは入力したい年、月を設定し月単位のデータを入力するページに移ることが出来ます。
+            入力を終えると、年単位のグラフを表示することが出来ます。まずは「入力を始める」をクリックして見ましょう！
+            ">?</span>
+    - else
+      .title
+        .title__left
+          .title__left__logo
+            ASSET STATION
+          .title__left__name
+            .title__left__name__font
               non user
-      .title__set
-        .title__set__chart
-          = link_to "年単位グラフ",chart_years_path
-        .title__set__name
-          入力を始める
-        .title__set__icon
-          - if user_signed_in?
-            = link_to new_year_path do
-              %i{class:"fas fa-cog fa-2x"}
+        .title__list
+          .title__list__help
+            はじめに[<span class="popup_help" data-message="
+            こちらは資産設計アプリです。
+            月々の収入・支出、現在の資産・負債を入力することで貸借対照表、損益計算書を作成出来ます！
+            入力を始めるにはログインしましょう！
+            ">?</span>]
+
   .right-menu
     - if user_signed_in?
       .right-menu__list
