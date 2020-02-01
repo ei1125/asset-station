@@ -4,7 +4,7 @@
 
 .header {
   width: 100vw;
-  height: 15vh;
+  height: 18vh;
   background-color: $header;
   display: flex;
   position: relative;
@@ -70,7 +70,7 @@
     // background-color: indianred;
     &__list {
       height: 10px;
-      padding: 10px 5px;
+      padding: 14px 5px;
       font-size: 15px;
       &__btn {
         text-align: center;
@@ -89,12 +89,12 @@
 
 .main-conts {
   width: 100vw;
-  height: 60vh;
+  height: 57vh;
   // display: flex;
   .left-conts {
     background-color: $main_conts;
     width: 100%;
-    height: 50%;
+    height: 55%;
     border: solid 1px ;
     border-radius: 10px;
     padding: 5px 5px;
@@ -122,13 +122,13 @@
         overflow-y: scroll;
          .table-items {
            font-size: 10px;
-           width: 125px;
+           width: 165px;
            margin: 3px 2px;
            .item {
-             width: 40px;
+             width: 70px;
            }
            .cf-text {
-             width: 80px;
+             width: 100px;
            }
          }
       }
@@ -194,13 +194,14 @@
   .right-conts {
     background-color: $main_conts;
     width: 100vw;
-    height: 50%;
+    height: 45%;
     border: solid 1px ;
     border-radius: 10px;
     padding: 2px;
     display: flex;
     &__list {
       width: 49%;
+      height: 100%;
       margin: 1px;
       padding: 1px;
       border: solid 1px ;
@@ -219,12 +220,13 @@
       }
       &__items {
         padding: 2px 1px;
+        height: 70%;
         overflow-y: scroll;
         font-size: 10px;
         .table-items {
-          width: 140px;
+          width: 200px;
           .item {
-            width: 60px;
+            width: 100px;
           }
         }
       }
@@ -255,8 +257,9 @@
     border-radius: 10px;
     padding: 1px;
     display: flex;
-    overflow-x: scroll;
     position: relative;
+    
+
     &__title {
       &__year {
         font-size: 14px;
@@ -293,6 +296,8 @@
       width: calc(100% - 45px);
       display: flex;
       font-size: 10px;
+      height: 65px;
+      overflow-x: scroll;
       .index {
         padding: 3px 0px;
       }
@@ -303,7 +308,8 @@
           border: solid 1px ;
           border-radius: 10px;
           padding: 3px 3px;
-          height: 40px;
+          height: 50px;
+          width: 50px;
         }
         .result:hover {
           color: white;
