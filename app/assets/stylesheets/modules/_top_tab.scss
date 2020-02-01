@@ -9,7 +9,7 @@
   display: flex;
   position: relative;
   .header-left {
-    width: calc(100vw - 180px);
+    width: calc(100vw - 110px);
     
     .title {
       // background-color: gray;
@@ -26,7 +26,7 @@
             &__link:hover {
               color: white;
               text-decoration: none;
-              background-color: grey;
+              background-color: gray;
             }
           }
           &__name {
@@ -39,14 +39,14 @@
           }
         }
         &__list {
-          width: 110px;
+          width: 100px;
           height: 40px;
           padding: 4px 0 0 0;
           position: absolute;
           top: 0px;
           right: 0px;
           font-size: 15px;
-          // background-color: honeydew;
+          // background-color: gray;
           &__items {
             margin-right: 10px;
             &__input:hover {
@@ -63,27 +63,28 @@
     }
   }
   .right-menu {
-    width: 180px;
+    width: 110px;
     position: absolute;
     bottom: 20px;
     right: 1px;
+    // background-color: indianred;
     &__list {
       height: 10px;
-      padding: 16px 10px;
+      padding: 13px 5px;
       &__btn {
         text-align: center;
-        padding: 3px 5px;
+        padding: 3px 3px;
         .btn1 {
-          width: 130px;
+          width: 90px;
           
         }
         .btn1:hover {
-          width: 130px;
+          width: 100px;
           background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
           border: 1px solid #2c628b;
         }
         .btn1:active {
-          width: 130px;
+          width: 90px;
           background-image: linear-gradient(180deg, #68d3db, #e5f4fc);
           border: 1px solid skyblue;
         }
