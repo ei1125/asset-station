@@ -65,28 +65,22 @@
   .right-menu {
     width: 110px;
     position: absolute;
-    bottom: 20px;
-    right: 1px;
+    top: -8px;
+    right: 0px;
     // background-color: indianred;
     &__list {
       height: 10px;
-      padding: 13px 5px;
+      padding: 10px 5px;
+      font-size: 15px;
       &__btn {
         text-align: center;
-        padding: 3px 3px;
+        padding: 3px 5px 0px 0px;
         .btn1 {
-          width: 90px;
-          
+          width: 95px;
         }
         .btn1:hover {
-          width: 100px;
-          background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
-          border: 1px solid #2c628b;
-        }
-        .btn1:active {
-          width: 90px;
-          background-image: linear-gradient(180deg, #68d3db, #e5f4fc);
-          border: 1px solid skyblue;
+          color: white;
+          background-color: grey;
         }
       }
     }
@@ -261,6 +255,8 @@
     border-radius: 10px;
     padding: 1px;
     display: flex;
+    overflow-x: scroll;
+    position: relative;
     &__title {
       &__year {
         font-size: 14px;
@@ -294,7 +290,7 @@
       }
     }
     &__items {
-      width: calc(100% - 145px);
+      width: calc(100% - 45px);
       display: flex;
       font-size: 10px;
       .index {
@@ -307,6 +303,7 @@
           border: solid 1px ;
           border-radius: 10px;
           padding: 3px 3px;
+          height: 40px;
         }
         .result:hover {
           color: white;
@@ -318,14 +315,12 @@
       }
     }
     &__right {
-      width: 100px;
+      // display: none;
+      width: 70px;
       font-size: 10px;
-      position: relative;
-      .total {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-      }
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
   &__list:hover {

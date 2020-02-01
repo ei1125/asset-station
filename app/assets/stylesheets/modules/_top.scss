@@ -79,14 +79,8 @@
           
         }
         .btn1:hover {
-          width: 130px;
-          background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
-          border: 1px solid #2c628b;
-        }
-        .btn1:active {
-          width: 130px;
-          background-image: linear-gradient(180deg, #68d3db, #e5f4fc);
-          border: 1px solid skyblue;
+          color: white;
+          background-color: grey;
         }
       }
     }
