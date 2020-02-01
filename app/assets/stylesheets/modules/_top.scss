@@ -50,10 +50,6 @@
           // background-color: grey;
           &__items {
             margin-right: 10px;
-            &__input {
-              // color: black;
-              // text-decoration: none;
-            }
             &__input:hover {
               color: white;
               text-decoration: none;
@@ -172,13 +168,19 @@
             margin: 3px 0;
             font-size: 20px;
             .fa-cog {
-              font-size: 20px;
               color: grey;
               margin: 0 5px;
             }
+            .fa-cog:hover {
+              color: black;
+              margin: 0 5px;
+            }
             .fa-trash-alt {
-              font-size:20px;
               color: grey;
+              margin-left: 10px;
+            }
+            .fa-trash-alt:hover {
+              color: black;
               margin-left: 10px;
             }
           }
