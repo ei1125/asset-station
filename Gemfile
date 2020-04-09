@@ -66,6 +66,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'pry-rails'
 gem "chartkick"
+gem 'activerecord-import'
 
 group :test do
   gem 'faker', "~> 2.8"
