@@ -34,12 +34,16 @@ class MonthsController < ApplicationController
   def create
     @year = Year.find(params[:year_id])
     @month = Month.new(month_params)
+    @months = Month.where(user_id: current_user.id).includes(:user).where(year_id: params[:year_id])
     if @month.save
       redirect_to year_month_path(@year, @month), notice: "#{@month.month}月を作成しました"
+    elsif @months.find_by(month: @month.month).present?
+      @month = @months.find_by(month: @month.month)
+      redirect_to year_month_path(@year, @month)
     else
       @year = Year.find(params[:year_id])
       @month = Month.new
-      flash.now[:alert] = "その月はすでに登録済みか値が不適切です"
+      flash.now[:alert] = "その値は不適切です"
       render action: :new
     end
   end

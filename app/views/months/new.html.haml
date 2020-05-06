@@ -1,12 +1,10 @@
+= render 'years/header'
+
 .year-header
   .year-header__left
-    .year-header__left__logo
-      = link_to "ASSET STATION", years_path, class: "asset-logo"
     .year-header__left__input
       = form_for([@year, @month], html: {class: "ym_input"}) do |f|
         ="#{@year.year}年"
-        = f.number_field :month, class: "m-num"
+        = f.select :month, [["1"], ["2"], ["3"], ["4"], ["5"], ["6"],["7"], ["8"], ["9"], ["10"], ["11"], ["12"]], {prompt: "ー"}, class: "m-num"
         月
         = f.submit "次へ"
-        
-= render 'years/main_demoform'

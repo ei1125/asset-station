@@ -1,6 +1,6 @@
 .year-header {
   width: 100vw;
-  height: 15vh;
+  height: 5vh;
   background-color: $header;
   // display: flex;
   // justify-content: space-between;
@@ -10,13 +10,14 @@
       font-size: 35px;
     }
     &__input {
-      font-size: 25px;
+      font-size: 20px;
       .y-num {
-        width: 100px;
-        font-size: 20px;
+        width: 130px;
+        height: 35px;
       }
       .m-num {
-        width: 50px;
+        width: 80px;
+        height: 35px;
       }
     }
   }
