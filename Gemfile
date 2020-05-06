@@ -67,11 +67,12 @@ gem 'devise'
 gem 'pry-rails'
 gem "chartkick"
 gem 'activerecord-import'
+gem 'unicorn', '5.4.1'
 
 group :test do
   gem 'faker', "~> 2.8"
 end
 
-group :production do
-  gem 'unicorn', '5.4.1'
-end
+# group :production do
+#   gem 'unicorn', '5.4.1'
+# end
