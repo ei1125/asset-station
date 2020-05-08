@@ -4,13 +4,12 @@
 
 .header {
   width: 100vw;
-  height: 18vh;
+  height: 13vh;
   background-color: $header;
   display: flex;
   position: relative;
   .header-left {
-    width: calc(100vw - 110px);
-    
+    width: 100%;
     .title {
       // background-color: gray;
       display: flex;
@@ -23,10 +22,13 @@
           margin: 10px;
           &__logo {
             font-size: 20px;
+            &__link {
+              text-decoration: none;
+              color: black;
+            }
             &__link:hover {
               color: white;
-              text-decoration: none;
-              background-color: gray;
+              background-color: grey;
             }
           }
           &__name {
@@ -39,52 +41,53 @@
           }
         }
         &__list {
-          width: 100px;
-          height: 40px;
+          // width: 100px;
+          // height: 40px;
           padding: 4px 0 0 0;
           position: absolute;
-          top: 0px;
+          bottom: 10px;
           right: 0px;
-          font-size: 15px;
+          font-size: 17px;
           // background-color: gray;
+          display: flex;
           &__items {
             margin-right: 10px;
+            &__input {
+              text-decoration: none;
+              color: black;
+            }
             &__input:hover {
               color: white;
-              text-decoration: none;
               background-color: grey;
             }
-          }
-          &__help {
-            font-size: 15px;
           }
         }
 
     }
   }
-  .right-menu {
-    width: 110px;
-    position: absolute;
-    top: -8px;
-    right: 0px;
-    // background-color: indianred;
-    &__list {
-      height: 10px;
-      padding: 14px 5px;
-      font-size: 15px;
-      &__btn {
-        text-align: center;
-        padding: 3px 5px 0px 0px;
-        .btn1 {
-          width: 95px;
-        }
-        .btn1:hover {
-          color: white;
-          background-color: grey;
-        }
-      }
-    }
-  }
+  // .right-menu {
+  //   width: 110px;
+  //   position: absolute;
+  //   top: -8px;
+  //   right: 0px;
+  //   // background-color: indianred;
+  //   &__list {
+  //     height: 10px;
+  //     padding: 14px 5px;
+  //     font-size: 15px;
+  //     &__btn {
+  //       text-align: center;
+  //       padding: 3px 5px 0px 0px;
+  //       .btn1 {
+  //         width: 95px;
+  //       }
+  //       .btn1:hover {
+  //         color: white;
+  //         background-color: grey;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .main-conts {

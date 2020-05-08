@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200101070245) do
+ActiveRecord::Schema.define(version: 20200409125402) do
 
   create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item",       null: false
@@ -71,6 +71,11 @@ ActiveRecord::Schema.define(version: 20200101070245) do
     t.index ["month"], name: "index_months_on_month", using: :btree
     t.index ["user_id"], name: "index_months_on_user_id", using: :btree
     t.index ["year_id"], name: "index_months_on_year_id", using: :btree
+  end
+
+  create_table "selects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "item"
+    t.string "category"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
