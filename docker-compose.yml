@@ -1,44 +1,39 @@
-# Docker Composeのバージョン
 version: '3'
-
-# Docker Composeではコンテナをサービスとして扱う
 services:
-  # サービス名をappとして定義
   app:
-    # 参照するDockerfileを指定（docker-compose.ymlから基準）
-    build: .
-    # 環境変数が設定されているファイルを指定
-    # env_file:
-    #   - ./environments/db.env
-    # ボリュームをマウント（後述）
+    build:
+      context: .
+    env_file:
+      - ./environments/db.env
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/asset-station
-    # サービス名dbが作成されたらappを作成
+      - public-data:/asset-station/public
+      - tmp-data:/asset-station/tmp
+      - log-data:/asset-station/log
     depends_on:
       - db
-    # コンテナを起動させ続ける際に使用
-    tty: true
-    # コマンドを実行
-    # command: bundle exec puma -C config/puma.rb
-    command: bundle exec unicorn -c config/unicorn.rb
-
   db:
     image: mysql:5.7
+    # env_file:
+    #   - ./environments/db.env
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    ports:
-      - "3306:3306"
+      
     volumes:
       - db-data:/var/lib/mysql
-
-  nginx:
-    build: containers/nginx
-    # ホスト:コンテナのポートを指定
+  web:
+    build:
+      context: containers/nginx
+    volumes:
+      - public-data:/asset-station/public
+      - tmp-data:/asset-station/tmp
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - app
-
-# ボリュームとして扱うボリューム名
 volumes:
+  public-data:
+  tmp-data:
+  log-data:
   db-data:
