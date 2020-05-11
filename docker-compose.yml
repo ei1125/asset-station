@@ -5,7 +5,8 @@ services:
       context: .
     env_file:
       - ./environments/db.env
-    command: bundle exec puma -C config/puma.rb
+    # command: bundle exec puma -C config/puma.rb
+    command: bundle exec pumactl start
     volumes:
       - .:/asset-station
       - public-data:/asset-station/public
@@ -15,11 +16,10 @@ services:
       - db
   db:
     image: mysql:5.7
-    # env_file:
-    #   - ./environments/db.env
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      
+    env_file:
+      - ./environments/db.env
+    # environment:
+    #   MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
       - db-data:/var/lib/mysql
   web:
