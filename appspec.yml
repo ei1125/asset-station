@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www
+hooks:
+  ApplicationStart:
+    - location: scripts/start.sh
+      runas: ec2-user
