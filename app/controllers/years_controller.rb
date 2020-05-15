@@ -1,4 +1,5 @@
 class YearsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
 
   def index #トップページ（ログイン後):２
     @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
@@ -15,15 +16,11 @@ class YearsController < ApplicationController
   end
   
   def show #月単位のグラフ
-    @year = Year.find(params[:id])
     @months = @year.months
-
-    # @months_cf = change_array(@months)
   end
 
   def chart #年単位のグラフ
     @years = Year.where(user_id: current_user.id).includes(:user)
-   
   end
 
   def new
@@ -46,13 +43,16 @@ class YearsController < ApplicationController
   end
 
   def destroy
-    year = Year.find(params[:id])
-    year.destroy
+    @year.destroy
     redirect_to root_path
   end
 
   private
   def year_params
     params.require(:year).permit(:year).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @year = Year.find(params[:id])
   end
 end
