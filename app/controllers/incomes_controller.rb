@@ -43,7 +43,7 @@ class IncomesController < ApplicationController
     if income_params[:cf].nil?
       redirect_to "/years/#{income.year.id}/months/#{income.month.id}"
     else
-      redirect_to "/years/#{income.year.id}/months/#{income.month.id}/assets"
+      redirect_to "/years/#{income.year.id}/months/#{income.month.id}/money_edit"
     end
   end
   

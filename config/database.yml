@@ -17,6 +17,7 @@ default: &default
   password: <%= ENV.fetch('MYSQL_PASSWORD') { '12345' } %>
   host: <%= ENV.fetch('MYSQL_HOST') { 'db' } %>
   # socket: /tmp/mysql.sock
+  # password:
 
 development:
   <<: *default

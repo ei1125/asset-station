@@ -1,17 +1,4 @@
 class AssetsController < ApplicationController
-
-  def index #ある月の金額入力：６
-    @year = Year.find(params[:year_id])
-    @month = Month.find(params[:month_id])
-    @income = Income.new
-    @incomes = @month.incomes.includes(:user).order("item DESC")
-    @expense = Expense.new
-    @expenses = @month.expenses.includes(:user).order("item DESC")
-    @asset = Asset.new
-    @assets = @month.assets.includes(:user).order("item DESC")
-    @debt = Debt.new
-    @debts = @month.debts.includes(:user).order("item DESC")
-  end
   
   def create
     @year = Year.find(params[:year_id])
@@ -23,13 +10,6 @@ class AssetsController < ApplicationController
           redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
         }
       end
-
-    # asset = Asset.create(asset_params)
-    # if asset_params[:money].nil?
-    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
-    # else
-    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
-    # end
   end
 
   def destroy
@@ -44,7 +24,7 @@ class AssetsController < ApplicationController
     if asset_params[:money].nil?
       redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
     else
-      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/assets"
+      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/money_edit"
     end
   end
   

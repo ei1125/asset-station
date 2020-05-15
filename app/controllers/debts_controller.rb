@@ -10,13 +10,6 @@ class DebtsController < ApplicationController
           redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}"
         }
       end
-
-    # debt = Debt.create(debt_params)
-    # if debt_params[:money].nil?
-    #   redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}"
-    # else
-    #   redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}/incomes"
-    # end
   end
 
   def destroy
@@ -31,7 +24,7 @@ class DebtsController < ApplicationController
     if debt_params[:money].nil?
       redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}"
     else
-      redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}/assets"
+      redirect_to "/years/#{debt.year.id}/months/#{debt.month.id}/money_edit"
     end
   end
   

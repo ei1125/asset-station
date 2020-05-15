@@ -10,13 +10,6 @@ class ExpensesController < ApplicationController
           redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
         }
       end
-
-    # expense = Expense.create(expense_params)
-    # if expense_params[:cf].nil?
-    #   redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
-    # else
-    #   redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/incomes"
-    # end
   end
 
   def destroy
@@ -31,7 +24,7 @@ class ExpensesController < ApplicationController
     if expense_params[:cf].nil?
       redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}"
     else
-      redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/assets"
+      redirect_to "/years/#{expense.year.id}/months/#{expense.month.id}/money_edit"
     end
   end
 

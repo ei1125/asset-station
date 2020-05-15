@@ -1,16 +1,10 @@
 class MonthsController < ApplicationController
-  
+  before_action :set_item, only: [:show, :money_edit, :edit]
+
   def show #ある月の項目追加入力：４
-    @year = Year.find(params[:year_id])
-    @month = Month.find(params[:id])
-    @income = Income.new
-    @incomes = @month.incomes.includes(:user).order("item DESC")
-    @expense = Expense.new
-    @expenses = @month.expenses.includes(:user).order("item DESC")
-    @asset = Asset.new
-    @assets = @month.assets.includes(:user).order("item DESC")
-    @debt = Debt.new
-    @debts = @month.debts.includes(:user).order("item DESC")
+  end
+  
+  def money_edit #ある月の金額入力：６
   end
 
   def new #月を入力ページ：３
@@ -19,16 +13,6 @@ class MonthsController < ApplicationController
   end
 
   def edit #ある月のデータ編集：５
-    @year = Year.find(params[:year_id])
-    @month = Month.find(params[:id])
-    @income = Income.new
-    @incomes = @month.incomes.includes(:user).order("item DESC")
-    @expense = Expense.new
-    @expenses = @month.expenses.includes(:user).order("item DESC")
-    @asset = Asset.new
-    @assets = @month.assets.includes(:user).order("item DESC")
-    @debt = Debt.new
-    @debts = @month.debts.includes(:user).order("item DESC")
   end
   
   def create
@@ -58,4 +42,18 @@ class MonthsController < ApplicationController
   def month_params
     params.require(:month).permit(:month).merge(user_id: current_user.id, year_id: params[:year_id])
   end
+
+  def set_item
+    @year = Year.find(params[:year_id])
+    @month = Month.find(params[:id])
+    @income = Income.new
+    @incomes = @month.incomes.includes(:user).order("item DESC")
+    @expense = Expense.new
+    @expenses = @month.expenses.includes(:user).order("item DESC")
+    @asset = Asset.new
+    @assets = @month.assets.includes(:user).order("item DESC")
+    @debt = Debt.new
+    @debts = @month.debts.includes(:user).order("item DESC")
+  end
+
 end
