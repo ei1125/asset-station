@@ -11,10 +11,13 @@
         %ul{class:"title__list"}
           %li{class:"title__list__items"}
             = link_to "記録する",new_year_path,class: "title__list__items__input"
+            = "/"
           %li{class:"title__list__items"}
             = link_to "グラフを表示",chart_years_path,class: "title__list__items__input"
+            = "/"
           %li{class:"title__list__items"}
             = link_to "登録編集",edit_user_path(current_user),class: "title__list__items__input"
+            = "/"
           %li{class:"title__list__items"}
             = link_to "ログアウト",destroy_user_session_path, method: :delete,class: "title__list__items__input"
     - else
@@ -28,7 +31,9 @@
         %ul{class:"title__list"}
           %li{class:"title__list__items"}
             = link_to "新規登録",new_user_registration_path,class: "title__list__items__input"
+            = "/"
           %li{class:"title__list__items"}
             = link_to "ゲストログイン",users_guest_sign_in_path, method: :post,class: "title__list__items__input"
+            = "/"
           %li{class:"title__list__items"}
             = link_to "ログイン",new_user_session_path,class: "title__list__items__input"

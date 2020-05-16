@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+.all-back {
+  width: 100vw;
+  height: 100vh;
+  background-color: $all-back;
+}
+
 .main-conts {
   width: 100vw;
   height: 40vh;
@@ -167,7 +173,6 @@
 
 .sub-conts {
   width: 100vw;
-  height: 45vh;
   background-color: $footer;
   overflow-y: scroll;
   &__list {
@@ -176,6 +181,7 @@
     border-radius: 10px;
     padding: 3px 3px;
     display: flex;
+    background-color: $footer-list;
     &__title {
       width: 100px;
       &__help {

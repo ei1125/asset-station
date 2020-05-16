@@ -4,8 +4,9 @@
   .year-header__left
     .year-header__left__input
       ="#{@year.year}年"
-      ="#{@month.month}月"
+      ="#{@month.month}月/"
       = link_to "編集", edit_year_month_path(@year, @month), class: "contents_link"
+      ="/"
       = link_to "項目追加", year_month_path(@year, @month), class: "contents_link"
 .year-main
   .year-main-conts

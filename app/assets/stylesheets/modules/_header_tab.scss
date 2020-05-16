@@ -1,12 +1,14 @@
 .header {
   width: 100vw;
-  height: 110px;
+  height: 13vh;
   background-color: $header;
   display: flex;
   position: relative;
   .header-left {
-    width: 100vw;
+    width: 100%;
     .title {
+      display: flex;
+      justify-content: space-between;
       width: 100%;
       height: 100%;
       position: relative;
@@ -14,8 +16,7 @@
           height: 67px;
           margin: 10px;
           &__logo {
-            font-size: 30px;
-            margin-bottom: 6px;
+            font-size: 20px;
             &__link {
               text-decoration: none;
               color: black;
@@ -27,33 +28,27 @@
           &__name {
             display: flex;
             &__font {
-              font-size: 25px;
-              line-height: 30px;
+              font-size: 20px;
+              line-height: 20px;
               border-bottom: solid 1px #000000;
             }
           }
         }
         &__list {
-          // width: 400px;
-          height: 40px;
-          padding: 4px 5px 0 0;
+          padding: 4px 0 0 0;
           position: absolute;
-          bottom: 15px;
-          right: 20px;
+          bottom: 0px;
+          right: 10px;
           display: flex;
-          font-size: 20px;
-          // background-color: grey;
           &__items {
             margin-right: 10px;
-            font-size: 23px;
+            font-size: 15px;
             &__input {
               text-decoration: none;
               color: black;
             }
             &__input:hover {
-              // color: white;
-              // background-color: grey;
-              background: linear-gradient(transparent 50%, #ff99ab 70%);
+              background: linear-gradient(transparent 70%, #ff99ab 70%);
             }
           }
         }

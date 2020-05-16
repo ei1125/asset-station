@@ -8,6 +8,7 @@
 @import "modules/js";
 @import "modules/popup_help";
 @import "modules/header";
+@import "mixin/shared";
 
 // @import "modules/top";
 
@@ -20,10 +21,13 @@
 @media screen and (max-width: 767px){
   @import "modules/year_tab";
   @import "modules/top_tab";
+  @import "modules/header_tab";
+  @import "modules/root_top_tab";
 }
 
 // #PC用のcss
 @media screen and (min-width: 767px) {
   @import "modules/year";
   @import "modules/top";
+  @import "modules/root_top";
 }
