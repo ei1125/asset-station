@@ -1,12 +1,9 @@
 .year-header {
   width: 100vw;
-  height: 6vh;
+  height: 55px;
   background-color: $header;
   &__left {
-    margin: 10px 10px 0;
-    &__logo {
-      font-size: 20px;
-    }
+    padding: 10px;
     &__input {
       font-size: 20px;
       .y-num {

@@ -1,12 +1,13 @@
-= render 'years/header'
+= render 'share/header'
 
 .year-header
   .year-header__left
     .year-header__left__input
       ="#{@year.year}年"
-      ="#{@month.month}月"
-      = link_to "編集", edit_year_month_path(@year, @month)
-      = link_to "金額を入力", year_month_assets_path(@year, @month)
+      ="#{@month.month}月 /"
+      = link_to "編集", edit_year_month_path(@year, @month), class: "contents_link"
+      ="/"
+      = link_to "金額を入力", money_edit_year_month_path(@year, @month), class: "contents_link"
 .year-main
   .year-main-conts
     .main-conts__box
@@ -18,7 +19,7 @@
             .conts-layout__lists__input
               = f.collection_select(:item, Select.where(category: "income"), :item, :item, {prompt: "項目名を選択"},required: true, class:"s_name")
               = f.submit "追加する", class: "plus"
-              = link_to year_month_assets_path(@year, @month) do
+              = link_to money_edit_year_month_path(@year, @month) do
                 %i{class:"fas fa-edit"}
           %ol{class:"lay_lists lay_income"}
             - @incomes.each do |income|
@@ -27,7 +28,6 @@
                 = link_to year_month_income_path(@year, @month, income.id), method: :delete, class: "i-icon" do
                   %i{class:"fas fa-ban"}
                 
-
       .conts-layout
         .conts-layout__name
           支出
@@ -36,7 +36,7 @@
             .conts-layout__lists__input
               = f.collection_select(:item, Select.where(category: "expense"), :item, :item, {prompt: "項目名を選択"},required: true, class:"s_name")
               = f.submit "追加する", class: "plus"
-              = link_to year_month_assets_path(@year, @month) do
+              = link_to money_edit_year_month_path(@year, @month) do
                 %i{class:"fas fa-edit"}
           %ol{class:"lay_lists lay_expense"}
             - @expenses.each do |expense|
@@ -54,7 +54,7 @@
             .conts-layout__lists__input
               = f.collection_select(:item, Select.where(category: "asset"), :item, :item, {prompt: "項目名を選択"},required: true, class:"s_name")
               = f.submit "追加する", class: "plus"
-              = link_to year_month_assets_path(@year, @month) do
+              = link_to money_edit_year_month_path(@year, @month) do
                 %i{class:"fas fa-edit"}
           %ol{class:"lay_lists lay_asset" }
             - @assets.each do |asset|
@@ -70,7 +70,7 @@
             .conts-layout__lists__input
               = f.collection_select(:item, Select.where(category: "debt"), :item, :item, {prompt: "項目名を選択"},required: true, class:"s_name")
               = f.submit "追加する", class: "plus"
-              = link_to year_month_assets_path(@year, @month) do
+              = link_to money_edit_year_month_path(@year, @month) do
                 %i{class:"fas fa-edit"}
           %ol{class:"lay_lists lay_debt"}
             - @debts.each do |debt|

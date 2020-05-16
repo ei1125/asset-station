@@ -10,9 +10,12 @@ Rails.application.routes.draw do
       get 'chart'
     end
     resources :months do
+      member do
+        get 'money_edit'
+      end
       resources :incomes, only: [:index, :create, :update, :destroy]
       resources :expenses, only: [:create, :update, :destroy]
-      resources :assets, only: [:index,:create, :update, :destroy]
+      resources :assets, only: [:create, :update, :destroy]
       resources :debts, only: [:create, :update, :destroy]
       namespace :api do
         resources :inexes, only: :index, defaults: { format: 'json' }

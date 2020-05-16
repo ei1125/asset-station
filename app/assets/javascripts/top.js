@@ -76,7 +76,6 @@ $(function(){
       $('#income-table').empty().append(html_income_table);
       $('#expense-table').empty().append(html_expense_table);
 
-      console.log(html_edit);
       })
   });
 });

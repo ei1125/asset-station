@@ -1,179 +1,30 @@
-= render 'years/header'
+= render 'share/header'
 
-.main-conts
-  .left-conts
-    .left-conts__list
-      .left-conts__list__title
-        .left-conts__list__title__name
-          収入
-        .left-conts__list__title__help
-          <span class="popup_help" data-message="
-          指定した月の収入が表示されます。
-          給料、配当金、不動産、ビジネスなどの月々で固定の収入項目を
-          設定出来ます！月のデータを表示したい時は下の表をクリックします。
-          ">?</span>
-      .left-conts__list__items
-        %table{border:"1",class:"table-items"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-          %tr
-            %td 給料
-            %td 万円
-          %tr
-            %td 配当
-            %td 万円
-          %tr
-            %td 不動産
-            %td 万円
-      .left-conts__list__r-side
-      
-        .total
-          総収入: 万円
-    .left-conts__list
-      .left-conts__list__title
-        .left-conts__list__title__name
-          支出
-        .left-conts__list__title__help
-          <span class="popup_help" data-message="
-          指定した月の支出が表示されます。
-          自動車ローン、税金、月払いのサブスクリプションなどの
-          月々で固定の支出項目を自分で設定出来ます！
-          月のデータを表示したい時は下の表をクリックします。
-          ">?</span>
-      .left-conts__list__items
-        %table{border:"1",class:"table-items"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-          %tr
-            %td 税金
-            %td 万円
-          %tr
-            %td 住宅ローン
-            %td 万円
-          %tr
-            %td 自動車ローン
-            %td 万円
-            
-      .left-conts__list__r-side
-        
-        .total
-          総収入: 万円
-          
-  
-  .right-conts
-    .right-conts__list
-      .right-conts__list__title
-        .right-conts__list__title__name
-          資産
-          <span class="popup_help" data-message="
-          ここでは入力した最新の資産データが表示されます。
-          資産とは所持していることで利益を生み出すものです。
-          例）預金、有価証券、不動産など
-          ">?</span>
-      .right-conts__list__items
-        %table{border:"1",class:"table-items"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-          %tr
-            %td 預金
-            %td 万円
-          %tr
-            %td 株
-            %td 万円
-          %tr
-            %td 不動産
-            %td 万円
-      .right-conts__list__bottom
-        .total
-          合計:万円
-    .right-conts__list
-      .right-conts__list__title
-        .right-conts__list__title__name
-          負債
-          <span class="popup_help" data-message="
-          ここでは入力した最新の負債データが表示されます。
-          負債は基本的に利息などが発生する借金のことです。
-          例）住宅ローン、自動車ローン、銀行ローン、奨学金など
-          ">?</span>
-      .right-conts__list__items
-        %table{border:"1",class:"table-items"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-          %tr
-            %td 住宅ローン残高
-            %td 万円
-          %tr
-            %td 銀行ローン残高
-            %td 万円
-          %tr
-            %td 奨学金
-            %td 万円
-      .right-conts__list__bottom
-        .total
-          合計:万円
-
-
-.sub-conts
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2020年
-      .sub-conts__list__title__help
-        <span class="popup_help" data-message="
-        ログイン後、右に出ている月の項目をクリックするとその月のデータが表示されます。
-        グラフのアイコンが出てくるのでクリックをすると１年間のグラフデータが表示されます。
-        ">?</span>
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-      .m-area
-        .result
-          .month
-            １月
-          .cf
-            月のCF:X万円
-      .m-area
-        .result
-          .month
-            2月
-          .cf
-            月のCF:X万円
-    .sub-conts__list__right
-      .total
-        合計CF：万円
-
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2019年
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-      
-    .sub-conts__list__right
-      .total
-        合計CF：万円
-
-  .sub-conts__list
-    .sub-conts__list__title
-      .sub-conts__list__title__year
-        2018年
-    .sub-conts__list__items
-      .index
-        .month
-          月:
-        .cf
-          CF:
-    .sub-conts__list__right
-      .total
-        合計CF：万円
+.main-root 
+  .main-root__visual
+    %p はじめよう、資産形成
+  .main-root__intro
+    .main-root__intro__subtitle
+      ログインして今すぐはじめよう！
+    %ul.main-root__intro__lists
+      %li.main-root__intro__lists__list
+        .main-root__intro__lists__list__image
+          .main-root__intro__lists__list__image--pict
+            = image_tag 'pict/pict-memo.jpeg'
+        .main-root__intro__lists__list__title
+          日々の資産推移を記録
+        .main-root__intro__lists__list__text
+      %li.main-root__intro__lists__list
+        .main-root__intro__lists__list__image
+          .main-root__intro__lists__list__image--pict
+            = image_tag 'pict/pict-asset.png'
+        .main-root__intro__lists__list__title
+          収支をまとめて表示
+        .main-root__intro__lists__list__text
+      %li.main-root__intro__lists__list
+        .main-root__intro__lists__list__image
+          .main-root__intro__lists__list__image--pict
+            = image_tag 'pict/pict-graph2.jpg'
+        .main-root__intro__lists__list__title
+          グラフを表示
+        .main-root__intro__lists__list__text

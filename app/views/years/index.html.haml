@@ -1,47 +1,49 @@
 
-= render 'years/header'
 
-.main-conts
-  .left-conts
-    .left-conts__list
-      .left-conts__list__title
-        .left-conts__list__title__name
-          収入
-      .left-conts__list__items
-        %table{border:"1",class:"table-items",id:"income-table"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-          
-      .left-conts__list__r-side
-        .when
-          年月
-        .edit
-          .edit__btn
-            表示するには<span class="popup_help" data-message="
-            記録するをクリックして入力を始めて見ましょう！
-            ">?</span>
+.all-back 
+  = render 'share/header'
+
+  .main-conts
+    .left-conts
+      .left-conts__list
+        .left-conts__list__title
+          .left-conts__list__title__name
+            収入
+        .left-conts__list__items
+          %table{border:"1",class:"table-items",id:"income-table"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
             
-        .total{id:"total_income"}
-          総収入: 万円
-    .left-conts__list
-      .left-conts__list__title
-        .left-conts__list__title__name
-          支出
-      .left-conts__list__items
-        %table{border:"1",class:"table-items",id:"expense-table"}
-          %tr
-            %th{class:"item"} 項目
-            %th キャッシュフロー
-            
-      .left-conts__list__r-side
-        .total{id:"total_expense"}
-          %ul
-            %li
-              総支出:万円
-            %li
-              月のCF:万円
+        .left-conts__list__r-side
+          .when
+            年月
+          .edit
+            .edit__btn
+              表示するには<span class="popup_help" data-message="
+              記録するをクリックして入力を始めて見ましょう！
+              ">?</span>
+              
+          .total{id:"total_income"}
+            総収入: 万円
+      .left-conts__list
+        .left-conts__list__title
+          .left-conts__list__title__name
+            支出
+        .left-conts__list__items
+          %table{border:"1",class:"table-items",id:"expense-table"}
+            %tr
+              %th{class:"item"} 項目
+              %th キャッシュフロー
+              
+        .left-conts__list__r-side
+          .total{id:"total_expense"}
+            %ul
+              %li
+                総支出:万円
+              %li
+                月のCF:万円
 
-  = render 'years/right_conts'
+    = render 'years/right_conts'
 
-= render 'years/sub_conts'
+  = render 'years/sub_conts'

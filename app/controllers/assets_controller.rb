@@ -1,18 +1,6 @@
 class AssetsController < ApplicationController
+  before_action :set_item, only: [:destroy, :update]
 
-  def index #ある月の金額入力：６
-    @year = Year.find(params[:year_id])
-    @month = Month.find(params[:month_id])
-    @income = Income.new
-    @incomes = @month.incomes.includes(:user).order("item DESC")
-    @expense = Expense.new
-    @expenses = @month.expenses.includes(:user).order("item DESC")
-    @asset = Asset.new
-    @assets = @month.assets.includes(:user).order("item DESC")
-    @debt = Debt.new
-    @debts = @month.debts.includes(:user).order("item DESC")
-  end
-  
   def create
     @year = Year.find(params[:year_id])
     @asset = Asset.new(asset_params)
@@ -20,31 +8,21 @@ class AssetsController < ApplicationController
       respond_to do |format|
         format.json
         format.html {
-          redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+          redirect_to "/years/#{@asset.year.id}/months/#{@asset.month.id}"
         }
       end
-
-    # asset = Asset.create(asset_params)
-    # if asset_params[:money].nil?
-    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
-    # else
-    #   redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/incomes"
-    # end
   end
 
   def destroy
-    asset = Asset.find(params[:id])
-    asset.destroy
-    # redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+    @asset.destroy
   end
 
   def update
-    asset = Asset.find(params[:id])
-    asset.update(asset_params)
+    @asset.update(asset_params)
     if asset_params[:money].nil?
-      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}"
+      redirect_to "/years/#{@asset.year.id}/months/#{@asset.month.id}"
     else
-      redirect_to "/years/#{asset.year.id}/months/#{asset.month.id}/assets"
+      redirect_to "/years/#{@asset.year.id}/months/#{@asset.month.id}/money_edit"
     end
   end
   
@@ -53,7 +31,10 @@ class AssetsController < ApplicationController
   def asset_params
     params.require(:asset).permit(:item, :money, :deposit).merge(user_id: current_user.id, month_id: params[:month_id])
   end
-
+  
+  def set_item
+    @asset = Asset.find(params[:id])
+  end
 
 
 end

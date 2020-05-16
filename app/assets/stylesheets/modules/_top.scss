@@ -2,90 +2,10 @@
   box-sizing: border-box;
 }
 
-.header {
+.all-back {
   width: 100vw;
-  height: 13vh;
-  background-color: $header;
-  display: flex;
-  position: relative;
-  .header-left {
-    width: 100vw;
-    .title {
-      // background-color: white;
-      width: 100%;
-      height: 100%;
-      position: relative;
-        &__left{
-          height: 67px;
-          margin: 10px;
-          &__logo {
-            font-size: 30px;
-            margin-bottom: 6px;
-            &__link {
-              text-decoration: none;
-              color: black;
-            }
-            &__link:hover {
-              color: white;
-              background-color: grey;
-            }
-          }
-          &__name {
-            display: flex;
-            &__font {
-              font-size: 25px;
-              line-height: 30px;
-              border-bottom: solid 1px #000000;
-            }
-          }
-        }
-        &__list {
-          // width: 400px;
-          height: 40px;
-          padding: 4px 5px 0 0;
-          position: absolute;
-          bottom: 15px;
-          right: 20px;
-          display: flex;
-          font-size: 20px;
-          // background-color: grey;
-          &__items {
-            margin-right: 10px;
-            &__input {
-              text-decoration: none;
-              color: black;
-            }
-            &__input:hover {
-              color: white;
-              background-color: grey;
-            }
-          }
-        }
-    }
-  }
-  // .right-menu {
-  //   width: 200px;
-  //   position: absolute;
-  //   bottom: 40px;
-  //   right: 1vw;
-  //   &__list {
-  //     height: 10px;
-  //     padding: 16px 30px;
-  //     &__btn {
-  //       text-align: center;
-  //       padding: 3px 5px;
-  //       .btn1 {
-  //         width: 130px;
-  //         text-decoration: none;
-  //         color: black;
-  //       }
-  //       .btn1:hover {
-  //         color: white;
-  //         background-color: grey;
-  //       }
-  //     }
-  //   }
-  // }
+  height: 100vh;
+  background-color: $all-back;
 }
 
 .main-conts {
@@ -253,7 +173,6 @@
 
 .sub-conts {
   width: 100vw;
-  height: 45vh;
   background-color: $footer;
   overflow-y: scroll;
   &__list {
@@ -262,6 +181,7 @@
     border-radius: 10px;
     padding: 3px 3px;
     display: flex;
+    background-color: $footer-list;
     &__title {
       width: 100px;
       &__help {

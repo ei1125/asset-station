@@ -1,16 +1,19 @@
 .year-header {
   width: 100vw;
-  height: 5vh;
+  height: 55px;
   background-color: $header;
-  // display: flex;
-  // justify-content: space-between;
+  border: 1px solid #eee;
   &__left {
-    margin: 10px 10px 0;
-    &__logo {
-      font-size: 35px;
-    }
+    padding: 10px;
     &__input {
       font-size: 20px;
+      .contents_link {
+        text-decoration: none;
+        color: black;
+      }
+      .contents_link:hover {
+        background: linear-gradient(transparent 70%, #ff99ab 70%);
+      }
       .y-num {
         width: 130px;
         height: 35px;
