@@ -1,3 +1,6 @@
 = render 'share/header'
-
-= line_chart month_array(@months), xtitle: "月", ytitle: "万円"
+.main-chart
+  .chart-title
+    年間総CFグラフ
+  .chart-box
+    = line_chart month_array(@months), xtitle: "月", ytitle: "万円"

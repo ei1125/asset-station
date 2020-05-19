@@ -1,4 +1,5 @@
 module YearsHelper
+  #年間総CF
   def year_array(years)
     array = []
     years.each do |year|
@@ -7,7 +8,7 @@ module YearsHelper
     end
     return array
   end
-
+  #月間総CF
   def month_array(months)
     array = []
     months.each do |month|

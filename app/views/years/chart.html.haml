@@ -1,4 +1,7 @@
 = render 'share/header'
-
-= line_chart year_array(@years), xtitle: "年", ytitle: "万円"
+.main-chart
+  .chart-title
+    年間総CFグラフ
+  .chart-box
+    = line_chart year_array(@years), xtitle: "年", ytitle: "万円"
 
