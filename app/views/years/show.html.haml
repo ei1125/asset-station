@@ -1,6 +1,8 @@
 = render 'share/header'
 .main-chart
   .chart-title
-    年間総CFグラフ
+    ="#{@year.year}年 月間総CFグラフ"
   .chart-box
-    = line_chart month_array(@months), xtitle: "月", ytitle: "万円"
+    = line_chart month_array(@chart_months), xtitle: "月", ytitle: "万円"
+
+= render 'years/sub_conts'
