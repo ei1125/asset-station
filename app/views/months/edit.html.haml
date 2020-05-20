@@ -21,7 +21,7 @@
             - @incomes.each do |income|
               %li 
                 = form_for([@year, @month, income]) do |f|
-                  = f.text_field :item
+                  = f.text_field :item, class:"edit-field"
                   = f.submit "更新"
       .conts-layout
         .conts-layout__name
@@ -31,7 +31,7 @@
             - @expenses.each do |expense|
               %li 
                 = form_for([@year, @month, expense]) do |f|
-                  = f.text_field :item
+                  = f.text_field :item, class:"edit-field"
                   = f.submit "更新"
     .main-conts__box
       .conts-layout
@@ -42,7 +42,7 @@
             - @assets.each do |asset|
               %li 
                 = form_for([@year, @month, asset]) do |f|
-                  = f.text_field :item
+                  = f.text_field :item, class:"edit-field"
                   = f.submit "更新"
       .conts-layout
         .conts-layout__name
@@ -52,5 +52,5 @@
             - @debts.each do |debt|
               %li 
                 = form_for([@year, @month, debt]) do |f|
-                  = f.text_field :item
+                  = f.text_field :item, class:"edit-field"
                   = f.submit "更新"

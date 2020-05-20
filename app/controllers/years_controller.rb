@@ -1,10 +1,8 @@
 class YearsController < ApplicationController
+  before_action :set_sub, only: [:index, :show, :chart]
   before_action :set_item, only: [:show, :destroy]
 
   def index #トップページ（ログイン後):２
-    @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
-    @months = Month.where(user_id: current_user.id).includes(:user).order("month ASC")
-    
     @last_month_assets = Month.includes(:user).where(user_id: current_user.id).joins(:assets,:year).order("year DESC","month DESC").first
     if @last_month_assets.present?
       @last_assets = @last_month_assets.assets
@@ -16,11 +14,10 @@ class YearsController < ApplicationController
   end
   
   def show #月単位のグラフ
-    @months = @year.months
+    @chart_months = @year.months
   end
 
   def chart #年単位のグラフ
-    @years = Year.where(user_id: current_user.id).includes(:user)
   end
 
   def new
@@ -50,6 +47,11 @@ class YearsController < ApplicationController
   private
   def year_params
     params.require(:year).permit(:year).merge(user_id: current_user.id)
+  end
+
+  def set_sub
+    @years = Year.where(user_id: current_user.id).includes(:user).order("year DESC")
+    @months = Month.where(user_id: current_user.id).includes(:user).order("month ASC")
   end
 
   def set_item

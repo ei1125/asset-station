@@ -28,7 +28,7 @@
 
 .year-main {
   width: 100vw;
-  height: 85vh;
+  height: 78vh;
   background-color: $main_conts;
   display: flex;
   .year-main-conts {
@@ -39,10 +39,10 @@
       height: 50%;
       display: flex;
       .conts-layout {
-        width: 50%;
-        border: solid 1px ;
+        width: 46%;
+        border: solid 0.5px ;
         border-radius: 10px;
-        margin: 10px;
+        margin: 2% 2% 1% 2%;
         padding: 3px;
         display: flex;
         background-color: $main_block;
@@ -62,8 +62,8 @@
         }
         &__lists {//conts-layout__lists
           position: absolute;
-          top: 20px;
-          left: 130px;
+          top: 55px;
+          left: 40px;
           &__input {
             display: flex;
             .s_name {
@@ -90,13 +90,16 @@
               color: red;
             }
           }
+          .edit-field {
+            width: 180px;
+          }
         }
-        // asset-indexで使用
+        // month-money-editで使用
         .table-lay-items {
           font-size: 17px;
           position: relative;
-          top: 50px;
-          left: 10px;
+          top: 55px;
+          left: 40px;
           th {
             padding: 0 5px;
           }
