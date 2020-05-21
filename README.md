@@ -17,22 +17,22 @@
 
 # 言語
 Ruby
-Javascript(jQuery)
-haml
-scss
+JavaScript(jQuery)
+Haml
+SCSS
 
 # フレームワーク
-Ruby on rails
+Ruby on Rails
 
 # サーバー環境
-docker/docker-compose
+Docker/Docker-compose
 Nginx/Puma
-Mysql
+MySQL
 
 # クラウド
-AWS(EC2/RDS/Codedeploy/Route53/VPC/Internet gateway/Elastic IP)
+AWS(EC2/RDS/CodeDeploy/Route53/VPC/Internet Gateway/Elastic IP)
 Github
-circle ci
+CircleCI
 
 # 開発経緯
 資産運用が騒がれる時代、手軽に自分の資産を調整できるアプリを作ってみたいと思いこのアプリを作りました。
