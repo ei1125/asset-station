@@ -39,6 +39,6 @@ CircleCI
 # 開発経緯
 資産形成をもっと身近にするために不動産、株、預金などを継続的に記録し簡単に現在の状態を表示できるようにする目的で作成しました。
 
-アプリ部分はruby on rails、jQueryを使用し、
+アプリ部分はRuby on Rails、jQueryを使用し、
 開発インフラ環境をDocker,AWS,Circle ciを用いて
 仮想コンテナでの開発、Githubのpushによる自動デプロイの環境を構築しました。
